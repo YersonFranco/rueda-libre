@@ -1,0 +1,180 @@
+BITÁCORA - Rueda Libre
+Proyecto: sitio web de Rueda Libre (alquiler de bicicletas y recorridos guiados en Medellín)
+Autor: Franco
+Reinicio del proyecto: 21/10/2026 (repositorio nuevo, con un commit por cada avance)
+
+==================================================
+MINIRETO 1: Kilómetro 0 (repositorio y página base)
+==================================================
+
+1. Entorno de trabajo
+- Editor: Visual Studio Code
+- Servidor local: extensión Live Server (http://127.0.0.1:5500)
+- Herramienta de revisión: DevTools del navegador (F12, pestaña Network)
+- Control de versiones: Git, con repositorio inicializado en la carpeta rueda-libre
+
+2. Estructura inicial del proyecto
+- index.html: página de inicio
+- paginas/: carpeta para las demás páginas (se llenará en los siguientes MiniRetos)
+- img/: carpeta de imágenes, con logo.jpg
+- bitacora.txt: este registro
+- Decisión: uso nombres en minúsculas, sin espacios ni tildes, para evitar errores al publicar en GitHub Pages.
+- Decisión: logo.jpg es una imagen provisional; la cambiaré por un logo o una foto de bicicletas.
+
+3. Documento base (index.html)
+- Incluye: DOCTYPE, idioma español (lang="es"), codificación UTF-8, viewport y meta description.
+- Título de la pestaña: Rueda Libre | Alquiler de bicicletas en Medellín
+- Contenido visible: un h1 con el nombre del negocio y un párrafo de bienvenida.
+
+4. Petición del documento (index.html)
+- URL completa: http://127.0.0.1:5500/index.html
+- Protocolo: http
+- Host: 127.0.0.1
+- Puerto: 5500
+- Ruta: /index.html
+- Método: GET
+- Código de estado: 200 (OK)
+- Observación: Live Server mostró el aviso "Live reload enabled"; significa que la página se recarga sola al guardar. No es un error.
+
+5. Ruta inexistente (/promociones.html)
+- URL probada: http://127.0.0.1:5500/promociones.html
+- Método: GET
+- Código de estado: 404 (Not Found)
+- Qué significa: el servidor recibió la petición, pero no encontró ese archivo porque no existe en el proyecto.
+
+6. Otro 404 observado (favicon.ico)
+- URL: http://127.0.0.1:5500/favicon.ico
+- Código de estado: 404 (Not Found)
+- Qué significa: el navegador pide por su cuenta el icono de la pestaña. Mi sitio todavía no tiene uno, por eso el servidor no lo encuentra. No afecta el funcionamiento de la página.
+
+7. Roles de cada lenguaje en Rueda Libre
+- HTML: define la estructura y el contenido. Ejemplo: el título "Rueda Libre" y el párrafo de bienvenida de la página de inicio.
+- CSS: define cómo se ve. Ejemplo: cambiar el color y el tamaño del título o el fondo de la página.
+- JavaScript: define lo que hace la página. Ejemplo: mostrar un mensaje al hacer clic en el botón de reservar.
+
+8. Commits del MiniReto 1
+- Primer intento: cca0342 "feat: estructura inicial, index base y bitacora" (guardado en la rama local respaldo-local).
+- En el reinicio del proyecto la estructura se reconstruyó en commits pequeños (ver MiniReto 2).
+
+==================================================
+MINIRETO 2: La vitrina de Rueda Libre (página de inicio)
+==================================================
+Objetivo: estructurar el contenido de la página de inicio con encabezados, párrafos, listas, imágenes y enlaces.
+
+1. Esquema de encabezados
+- h1: Rueda Libre (único en toda la página, con el logo al lado).
+- h2: ¿Quiénes somos?, Nuestros servicios, ¿Cómo alquilar?, Encuéntranos.
+- h3 (dentro de "Nuestros servicios"): Alquiler de bicicletas, Recorridos guiados, Taller básico.
+- Decisión: el número del encabezado indica la jerarquía (a qué sección pertenece), no el tamaño. Las secciones hermanas llevan el mismo nivel y no se saltan niveles.
+- Error corregido: al principio puse los títulos en escalera (h2, h3, h4, h5). Lo corregí porque las cuatro secciones son del mismo nivel y los servicios van un nivel por debajo de "Nuestros servicios".
+
+2. Contenido de los servicios
+- Cada h3 tiene su párrafo debajo.
+- strong (información clave): "incluye casco y candado" en el alquiler y "ajustes de frenos y cambios" en el taller.
+- em (matiz): "pensadas para disfrutar sin afán" en los recorridos y "en el mismo día" en el taller.
+- Decisión: strong marca importancia y em marca énfasis. No los uso para cambiar la apariencia, eso se hará con CSS.
+
+3. Listas
+- Lista numerada (ol): los 4 pasos para alquilar, porque el orden importa.
+- Lista con viñetas (ul): los 3 beneficios del servicio, porque el orden no importa. Quedó dentro de "¿Quiénes somos?" con una frase que la presenta.
+- Dentro de ol y ul solo van elementos li.
+
+4. Imágenes
+- Archivos en img/: portada.jpg, bicicleta.jpg, ruta.jpg (además de logo.jpg).
+- Todas con ruta relativa (img/archivo.jpg), sin rutas del tipo C:\ o /home/.
+- Todas con alt y con width definido (600 px la portada, 400 px las demás), sin height, para que no se deformen.
+- Observación: cada foto pesa cerca de 1 MB y mide 1408 x 768 px. Funciona, pero conviene optimizarlas más adelante, porque se muestran a 600 y 400 px de ancho.
+- Aprendizaje: el alt debe describir lo que realmente se ve en la foto, no una descripción de ejemplo.
+
+5. Enlaces
+- Externo (absoluto): búsqueda de Medellín en Google Maps. Lleva target="_blank" para abrir en otra pestaña y rel="noopener noreferrer" por seguridad.
+- Correo: mailto:hola@ruedalibre.example (abre la aplicación de correo).
+- Interno: desde el primer párrafo hacia #encuentranos. El h2 de "Encuéntranos" tiene id="encuentranos".
+- Decisión: el id va en minúsculas y sin tilde, y debe coincidir exactamente con el href.
+
+6. Verificación en DevTools (Elements)
+- Los encabezados, párrafos, imágenes y listas quedaron al mismo nivel, como hijos directos de body.
+- Aprendizaje: una etiqueta sin cerrar hace que el navegador meta lo que sigue dentro de ella. Se ve en Elements por la sangría.
+
+7. Commits del MiniReto 2 (repositorio nuevo, 21/10/2026)
+- e4ab640 feat: se agrega la portada
+- e5452dd feat: se agrega el apartado de ¿Quiénes somos?
+- 76fe452 feat: se agrega el apartado de servicios
+- b8f4b81 feat: se agrega el apartado de ¿Cómo alquilar?
+- 12a7748 feat: se agrega el apartado de encuentranos
+
+==================================================
+MINIRETO 3: Tarifas y rutas (en curso)
+==================================================
+Objetivo: presentar datos con tablas accesibles y conectar páginas de carpetas distintas con rutas relativas.
+
+1. Lo construido
+- paginas/tarifas.html con estructura base, idioma español, título propio y viewport.
+- Tabla de tarifas de alquiler y tabla de recorridos guiados, con thead, tbody y th scope="col".
+- Logo mostrado con la ruta ../img/logo.jpg (se sube un nivel porque la página está en paginas/).
+- Enlace de regreso al inicio con ../index.html.
+- Enlace desde el inicio hacia paginas/tarifas.html (ruta hacia una subcarpeta).
+
+2. Rutas relativas usadas
+- index.html -> paginas/tarifas.html
+- paginas/tarifas.html -> ../index.html
+- paginas/tarifas.html -> ../img/logo.jpg
+- Regla: ../ sube una carpeta; sin ../ se parte desde la carpeta de la página actual.
+
+3. Revisión contra los criterios de la actividad (hallazgos)
+- Falta la fila "Urbana" en la tabla de alquiler ($10.000 / $30.000 / $50.000).
+- Dato errado: Montaña medio día tenía $25.000 y el cliente indicó $45.000.
+- Faltan los caption (título) de las dos tablas.
+- El nombre de cada fila debe ser th scope="row", no td.
+- Hay un </tbody> de más en la tabla de recorridos, y se usó un tbody por fila (debe ser uno solo por tabla).
+- La sección de recorridos necesita un id (por ejemplo id="recorridos") para enlazarla directamente.
+- La nota de casco y candado y el horario quedaron entre las tablas; deben ir debajo. "Qué llevar" debe ser una lista (ul), no un párrafo.
+- Falta la meta description propia de tarifas.html.
+- En el inicio, el enlace a recorridos no apunta a la tabla (falta #recorridos).
+- Las tablas llevan border="1" solo como ayuda visual temporal; el borde real se hará con CSS.
+
+4. Commits del MiniReto 3
+- 72e70bf feat: agrega logo de Rueda Libre
+- 49927d2 feat: agrega pagina de tarifas con sus dos tablas
+
+==================================================
+REGISTRO DE INCIDENCIAS Y DECISIONES DE GIT
+==================================================
+
+1. Entorno compartido (PCs de Riwi)
+- Decisión: configurar el nombre y el correo solo de forma local en cada repositorio (git config sin --global), porque el usuario de Ubuntu es compartido. Se comprueba con git config --show-origin user.email, que debe indicar .git/config.
+- Decisión: usar el remoto por HTTPS con token de acceso personal de vencimiento corto, en lugar de una llave SSH, para no dejar credenciales en un PC compartido.
+- Hábito: no guardar credenciales en el PC y cerrar sesión de GitHub al terminar.
+
+2. Incidente: historias divergentes (21/10/2026)
+- Síntoma: git push -u origin main fue rechazado con "non-fast-forward". git status indicó que las ramas habían divergido, con 3 y 5 commits distintos.
+- Diagnóstico (comandos de solo lectura): git status, git log --oneline, git fetch origin, git log origin/main, git ls-tree -r --name-only origin/main y git diff origin/main --stat.
+- Causa: la carpeta local venía del primer intento y el repositorio de GitHub era el del reinicio. Las dos historias no compartían ningún commit.
+- Lo que NO se hizo: git push --force (habría borrado los commits de GitHub) ni git pull a ciegas (habría mezclado historias distintas).
+- Solución:
+  1. git branch respaldo-local, para guardar los 3 commits locales.
+  2. git reset --hard origin/main, para alinear main con GitHub.
+  3. git checkout respaldo-local -- img/logo.jpg y luego commit y push.
+  4. git checkout respaldo-local -- paginas/tarifas.html y luego commit y push.
+- Resultado: push normal, sin forzar (12a7748 -> 72e70bf -> 49927d2). No se perdió ningún archivo.
+- Lección: cuando Git dice "diverged" o "non-fast-forward", primero se mira (log y fetch), luego se respalda y solo después se decide.
+
+==================================================
+ESTADO ACTUAL Y PENDIENTES
+==================================================
+Pendientes de tarifas.html (un commit por arreglo):
+1. Agregar la fila Urbana y corregir el precio de Montaña a $45.000 (medio día).
+2. Agregar caption y th scope="row", y dejar un solo tbody por tabla.
+3. Agregar id="recorridos" en la sección de la segunda tabla.
+4. Mover la nota y el horario debajo de las tablas y hacer "qué llevar" con ul.
+5. Agregar la meta description propia.
+
+Pendientes de index.html:
+6. Corregir los alt para que describan lo que se ve en cada foto.
+7. Quitar el bloque style (el CSS se ve en el Día 3).
+8. Enlazar a tarifas de forma general y, desde "Recorridos guiados", a paginas/tarifas.html#recorridos, con texto descriptivo en el enlace.
+
+Verificación:
+9. Registrar en Network que no haya errores 404 (salvo favicon.ico) y probar que el enlace a recorridos abra directo en la tabla.
+
+Siguiente: MiniReto 4 (reservas.html, menú común, pie de página y versión v0.1).
