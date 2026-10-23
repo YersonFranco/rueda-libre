@@ -222,6 +222,16 @@ paginas/tarifas.html  -> Logo (imagen, no es enlace)       -> ../img/logo.jpg
 - Algunas peticiones de logo.jpg salieron canceladas (NS_BINDING_ABORTED) al cambiar de página antes de que la imagen terminara de cargar. No son errores de ruta: el logo cargó con 200 en las demás visitas.
 - Resultado: cero errores 404 en las páginas y las imágenes del sitio.
 
+7. Commits del MiniReto 4
+- 966996e feat: agrega pagina de reservas con contacto y horario
+- 04c2499 feat: agrega pagina de reservas con menu, contacto y horario
+- 2fde4a0 feat: agrega menu de navegacion en inicio y tarifas
+- 2d0bae0 feat: agrega pie de pagina comun en las tres paginas
+- f37aec6 feat: agrega enlaces Reservar ahora hacia reservas
+- e7eadf2 docs: agrega tabla de rutas a la bitacora
+- 40c240f fix: corrige texto del enlace Reservar ahora
+- 98b543f feat: sitio Rueda Libre v0.1 con tres paginas navegables (etiqueta v0.1)
+
 ==================================================
 ESTADO ACTUAL Y PENDIENTES
 ==================================================
