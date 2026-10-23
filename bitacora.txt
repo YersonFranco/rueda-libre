@@ -162,19 +162,84 @@ REGISTRO DE INCIDENCIAS Y DECISIONES DE GIT
 ==================================================
 ESTADO ACTUAL Y PENDIENTES
 ==================================================
-Pendientes de tarifas.html (un commit por arreglo):
-1. Agregar la fila Urbana y corregir el precio de Montaña a $45.000 (medio día).
-2. Agregar caption y th scope="row", y dejar un solo tbody por tabla.
-3. Agregar id="recorridos" en la sección de la segunda tabla.
-4. Mover la nota y el horario debajo de las tablas y hacer "qué llevar" con ul.
-5. Agregar la meta description propia.
+==================================================
+ESTADO ACTUAL Y PENDIENTES
+==================================================
+Hecho:
+- MiniReto 1: repositorio, estructura y página base.
+- MiniReto 2: página de inicio con encabezados, listas, imágenes y enlaces.
+- MiniReto 3: página de tarifas con dos tablas y rutas relativas, ya corregida.
+- MiniReto 4, pasos 1 a 4: reservas.html, menú común, pie de página y enlaces "Reservar ahora".
 
-Pendientes de index.html:
-6. Corregir los alt para que describan lo que se ve en cada foto.
-7. Quitar el bloque style (el CSS se ve en el Día 3).
-8. Enlazar a tarifas de forma general y, desde "Recorridos guiados", a paginas/tarifas.html#recorridos, con texto descriptivo en el enlace.
+Pendientes del MiniReto 4:
+1. Recorrer el sitio completo usando solo el menú (nueve combinaciones) y confirmar en Network que no hay errores 404.
+2. Cerrar la versión con un commit que la identifique como v0.1.
 
-Verificación:
-9. Registrar en Network que no haya errores 404 (salvo favicon.ico) y probar que el enlace a recorridos abra directo en la tabla.
+3. Correcciones aplicadas tras la revisión contra los criterios
+- Se agregó la fila "Urbana" y se corrigió el precio de Montaña (medio día) a $45.000.
+- Se agregaron los caption de las dos tablas y th scope="row" en el nombre de cada fila.
+- Se dejó un solo tbody por tabla y se quitó un </tbody> sobrante.
+- Se agregó id="recorridos" en la sección de la segunda tabla, para enlazarla desde el inicio.
+- La nota de casco y candado y el horario quedaron debajo de las tablas, y "qué llevar" pasó a ser una lista (ul).
+- Se agregó la meta description propia de tarifas.html.
+- En el inicio se enlazó la tabla de recorridos con paginas/tarifas.html#recorridos.
+- Se corrigieron los alt de las imágenes y se quitó el bloque style del index (el CSS se ve en el Día 3).
+- Aprendizaje: un enlace con #id abre la otra página justo en esa sección.
 
-Siguiente: MiniReto 4 (reservas.html, menú común, pie de página y versión v0.1).
+4. Commits del MiniReto 3
+- 72e70bf feat: agrega logo de Rueda Libre
+- 49927d2 feat: agrega pagina de tarifas con sus dos tablas
+- 9ce11aa fix: corregir errores del index
+- (agrega aquí cualquier otro commit de tarifas que muestre git log --oneline)
+
+==================================================
+MINIRETO 4: Sitio entregable v0.1 (en curso)
+==================================================
+Objetivo: integrar index.html, paginas/tarifas.html y paginas/reservas.html en un sitio navegable, con menú y pie comunes y una página de reservas inicial.
+
+1. Página de reservas (paginas/reservas.html)
+- Estructura base completa, title propio (Rueda Libre | Reservas) y meta description propia.
+- h1 único: "Reserva tu bicicleta" (sin el logo dentro, para que el título sea exacto).
+- Correo de contacto como enlace mailto:hola@ruedalibre.example.
+- Horario de atención en una lista de definiciones (dl):
+  - Lunes a viernes: 7:00 a. m. a 7:00 p. m.
+  - Sábados, domingos y festivos: 6:00 a. m. a 2:00 p. m.
+- Decisión: el día es el término (dt) y el horario es la descripción (dd). Un solo dl con dos pares.
+- Errores corregidos del primer borrador: tenía dt y dd al revés, un dd cerrado con </dl> y dos dl separados. El menú estaba debajo del título y decía "Tarifas & Rutas" en vez de "Tarifas y rutas".
+
+2. Menú de navegación
+- nav con una lista (ul) de enlaces (li con a): Inicio, Tarifas y rutas, Reservas.
+- Mismo menú y mismos textos al comienzo del body de las tres páginas.
+- Las rutas cambian según la carpeta: index.html está en la raíz y los otros dos archivos están dentro de paginas/.
+- Regla: ../ sube una carpeta; sin ../ se parte de la carpeta donde está la página actual.
+
+3. Pie de página
+- Bloque final (footer) con el nombre del negocio, el correo con mailto: y el año, igual en las tres páginas.
+
+4. Enlaces "Reservar ahora"
+- Uno en index.html y otro debajo de la tabla de recorridos en tarifas.html, ambos hacia reservas.html.
+- La ruta es distinta en cada página porque están en carpetas diferentes (ver tabla).
+
+5. Tabla de rutas relativas (archivo de origen -> destino -> ruta escrita)
+
+Menú (nueve combinaciones):
+index.html            -> Inicio            -> index.html
+index.html            -> Tarifas y rutas   -> ./paginas/tarifas.html
+index.html            -> Reservas          -> ./paginas/reservas.html
+paginas/tarifas.html  -> Inicio            -> ../index.html
+paginas/tarifas.html  -> Tarifas y rutas   -> tarifas.html
+paginas/tarifas.html  -> Reservas          -> reservas.html
+paginas/reservas.html -> Inicio            -> ../index.html
+paginas/reservas.html -> Tarifas y rutas   -> tarifas.html
+paginas/reservas.html -> Reservas          -> reservas.html
+
+Otros enlaces entre páginas:
+index.html            -> Tarifas (enlace general)          -> paginas/tarifas.html
+index.html            -> Tabla de recorridos               -> paginas/tarifas.html#recorridos
+index.html            -> Reservar ahora                    -> paginas/reservas.html
+paginas/tarifas.html  -> Reservar ahora (bajo la tabla)    -> reservas.html
+paginas/tarifas.html  -> Volver al inicio                  -> ../index.html
+paginas/tarifas.html  -> Logo (imagen, no es enlace)       -> ../img/logo.jpg
+
+- Observación: la ruta de la imagen del logo también sube un nivel (../) porque tarifas.html está en paginas/.
+- Decisión: unificar el estilo de las rutas, sin ./ al inicio.
