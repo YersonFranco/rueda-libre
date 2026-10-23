@@ -159,39 +159,9 @@ REGISTRO DE INCIDENCIAS Y DECISIONES DE GIT
 - Resultado: push normal, sin forzar (12a7748 -> 72e70bf -> 49927d2). No se perdió ningún archivo.
 - Lección: cuando Git dice "diverged" o "non-fast-forward", primero se mira (log y fetch), luego se respalda y solo después se decide.
 
-==================================================
-ESTADO ACTUAL Y PENDIENTES
-==================================================
-==================================================
-ESTADO ACTUAL Y PENDIENTES
-==================================================
-Hecho:
-- MiniReto 1: repositorio, estructura y página base.
-- MiniReto 2: página de inicio con encabezados, listas, imágenes y enlaces.
-- MiniReto 3: página de tarifas con dos tablas y rutas relativas, ya corregida.
-- MiniReto 4, pasos 1 a 4: reservas.html, menú común, pie de página y enlaces "Reservar ahora".
-
-Pendientes del MiniReto 4:
-1. Recorrer el sitio completo usando solo el menú (nueve combinaciones) y confirmar en Network que no hay errores 404.
-2. Cerrar la versión con un commit que la identifique como v0.1.
-
-3. Correcciones aplicadas tras la revisión contra los criterios
-- Se agregó la fila "Urbana" y se corrigió el precio de Montaña (medio día) a $45.000.
-- Se agregaron los caption de las dos tablas y th scope="row" en el nombre de cada fila.
-- Se dejó un solo tbody por tabla y se quitó un </tbody> sobrante.
-- Se agregó id="recorridos" en la sección de la segunda tabla, para enlazarla desde el inicio.
-- La nota de casco y candado y el horario quedaron debajo de las tablas, y "qué llevar" pasó a ser una lista (ul).
-- Se agregó la meta description propia de tarifas.html.
-- En el inicio se enlazó la tabla de recorridos con paginas/tarifas.html#recorridos.
-- Se corrigieron los alt de las imágenes y se quitó el bloque style del index (el CSS se ve en el Día 3).
-- Aprendizaje: un enlace con #id abre la otra página justo en esa sección.
-
-4. Commits del MiniReto 3
-- 72e70bf feat: agrega logo de Rueda Libre
-- 49927d2 feat: agrega pagina de tarifas con sus dos tablas
-- 9ce11aa fix: corregir errores del index
-- (agrega aquí cualquier otro commit de tarifas que muestre git log --oneline)
-
+Pendiente:
+- Optimizar el peso de las fotos (cada una pesa cerca de 1 MB).
+- Estilos con CSS (siguiente tema del módulo).
 ==================================================
 MINIRETO 4: Sitio entregable v0.1 (en curso)
 ==================================================
@@ -243,3 +213,21 @@ paginas/tarifas.html  -> Logo (imagen, no es enlace)       -> ../img/logo.jpg
 
 - Observación: la ruta de la imagen del logo también sube un nivel (../) porque tarifas.html está en paginas/.
 - Decisión: unificar el estilo de las rutas, sin ./ al inicio.
+
+6. Verificación del recorrido (Network)
+- Recorrí el sitio usando solo el menú, pasando por las nueve combinaciones de origen y destino entre index.html, tarifas.html y reservas.html.
+- Las tres páginas y las imágenes respondieron con 200. Algunas con 304, que significa que el navegador reutilizó el archivo guardado.
+- Único 404: favicon.ico, el icono de la pestaña que el navegador pide por su cuenta. El sitio aún no tiene icono y no afecta el funcionamiento.
+- Las peticiones ws con estado 101 son de Live Server (recarga automática), no del sitio.
+- Algunas peticiones de logo.jpg salieron canceladas (NS_BINDING_ABORTED) al cambiar de página antes de que la imagen terminara de cargar. No son errores de ruta: el logo cargó con 200 en las demás visitas.
+- Resultado: cero errores 404 en las páginas y las imágenes del sitio.
+
+==================================================
+ESTADO ACTUAL Y PENDIENTES
+==================================================
+Hecho:
+- MiniReto 1: repositorio, estructura y página base.
+- MiniReto 2: página de inicio con encabezados, listas, imágenes y enlaces.
+- MiniReto 3: página de tarifas con dos tablas y rutas relativas.
+- MiniReto 4: reservas.html, menú común, pie de página, enlaces "Reservar ahora", tabla de rutas y verificación en Network.
+- Versión v0.1: sitio con tres páginas navegables.
