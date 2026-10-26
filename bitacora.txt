@@ -1,0 +1,45 @@
+BITÁCORA - Rueda Libre
+Proyecto: sitio web de Rueda Libre (alquiler de bicicletas y recorridos guiados en Medellín)
+Autor: Yerson Franco
+==================================================
+MINIRETO 1: Kilómetro 0 (repositorio y página base)
+==================================================
+1. Entorno de trabajo
+- Editor: Visual Studio Code
+- Servidor local: extensión Live Server (http://127.0.0.1:5500)
+- Herramienta de revisión: DevTools del navegador (F12, pestaña Network)
+- Control de versiones: Git, con repositorio inicializado en la carpeta rueda-libre
+
+2. Estructura inicial del proyecto
+- index.html: página de inicio
+- paginas/: carpeta para las demás páginas
+- img/: carpeta de imágenes, con logo.jpg
+- bitacora.txt: este registro
+- Decisión: uso nombres en minúsculas, sin espacios ni tildes, para evitar errores al publicar en GitHub Pages.
+- Decisión: logo.jpg es una imagen provisional; la cambiaré por un logo o una foto de bicicletas.
+
+3. Documento base (index.html)
+- Incluye: DOCTYPE, idioma español (lang="es"), codificación UTF-8, viewport y meta description.
+- Título de la pestaña: Rueda Libre | Alquiler de bicicletas en Medellín
+- Contenido visible: un h1 con el nombre del negocio y un párrafo de bienvenida.
+
+4. Petición del documento (index.html)
+- URL completa: http://127.0.0.1:5500/index.html
+- Protocolo: http
+- Host: 127.0.0.1
+- Puerto: 5500
+- Ruta: /index.html
+- Método: GET
+- Código de estado: 200 (OK)
+- Observación: Live Server mostró el aviso "Live reload enabled"; significa que la página se recarga sola al guardar. No es un error.
+
+5. Ruta inexistente (/promociones.html)
+- URL probada: http://127.0.0.1:5500/promociones.html
+- Método: GET
+- Código de estado: 404 (Not Found)
+- Qué significa: el servidor recibió la petición, pero no encontró ese archivo porque no existe en el proyecto.
+
+6. Roles de cada lenguaje en Rueda Libre
+- HTML: define la estructura y el contenido. Ejemplo: el título "Rueda Libre" y el párrafo de bienvenida de la página de inicio.
+- CSS: define cómo se ve. Ejemplo: cambiar el color y el tamaño del título o el fondo de la página.
+- JavaScript: define lo que hace la página. Ejemplo: mostrar un mensaje al hacer clic en el botón de reservar.
