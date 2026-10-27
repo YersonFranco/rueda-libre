@@ -43,3 +43,39 @@ MINIRETO 1: Kilómetro 0 (repositorio y página base)
 - HTML: define la estructura y el contenido. Ejemplo: el título "Rueda Libre" y el párrafo de bienvenida de la página de inicio.
 - CSS: define cómo se ve. Ejemplo: cambiar el color y el tamaño del título o el fondo de la página.
 - JavaScript: define lo que hace la página. Ejemplo: mostrar un mensaje al hacer clic en el botón de reservar.
+
+==================================================
+MINIRETO 2: La vitrina de Rueda Libre (página de inicio)
+==================================================
+Objetivo: estructurar el contenido de la página de inicio con encabezados, párrafos, listas, imágenes y enlaces.
+
+1. Esquema de encabezados
+- h1: Rueda Libre (único en toda la página, con el logo al lado).
+- h2: ¿Quiénes somos?, Nuestros servicios, ¿Cómo alquilar?, Encuéntranos.
+- h3 (dentro de "Nuestros servicios"): Alquiler de bicicletas, Recorridos guiados, Taller básico.
+- Decisión: el número del encabezado indica la jerarquía (a qué sección pertenece), no el tamaño. Las secciones hermanas llevan el mismo nivel y no se saltan niveles.
+- Error corregido: al principio puse los títulos en escalera (h2, h3, h4, h5). Lo corregí porque las cuatro secciones son del mismo nivel y los servicios van un nivel por debajo de "Nuestros servicios".
+
+2. Contenido de los servicios
+- Cada h3 tiene su párrafo debajo.
+- strong (información clave): "incluye casco y candado" en el alquiler y "ajustes de frenos y cambios" en el taller.
+- em (matiz): "pensadas para disfrutar sin afán" en los recorridos y "en el mismo día" en el taller.
+- Decisión: strong marca importancia y em marca énfasis. No los uso para cambiar la apariencia, eso se hará con CSS.
+
+3. Listas
+- Lista numerada (ol): los 4 pasos para alquilar, porque el orden importa.
+- Lista con viñetas (ul): los 3 beneficios del servicio, porque el orden no importa. Quedó dentro de "¿Quiénes somos?" con una frase que la presenta.
+- Dentro de ol y ul solo van elementos li.
+
+4. Imágenes
+- Archivos en img/: portada.jpg, bicicleta.jpg, ruta.jpg (además de logo.jpg).
+- Todas con ruta relativa (img/archivo.jpg), sin rutas del tipo C:\ o /home/.
+- Todas con alt y con width definido (600 px la portada, 400 px las demás), sin height, para que no se deformen.
+- Observación: cada foto pesa cerca de 1 MB y mide 1408 x 768 px. Funciona, pero conviene optimizarlas más adelante, porque se muestran a 600 y 400 px de ancho.
+- Aprendizaje: el alt debe describir lo que realmente se ve en la foto, no una descripción de ejemplo.
+
+5. Enlaces
+- Externo (absoluto): búsqueda de Medellín en Google Maps. Lleva target="_blank" para abrir en otra pestaña y rel="noopener noreferrer" por seguridad.
+- Correo: mailto:hola@ruedalibre.example (abre la aplicación de correo).
+- Interno: desde el primer párrafo hacia #encuentranos. El h2 de "Encuéntranos" tiene id="encuentranos".
+- Decisión: el id va en minúsculas y sin tilde, y debe coincidir exactamente con el href.
