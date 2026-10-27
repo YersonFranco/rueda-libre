@@ -79,3 +79,52 @@ Objetivo: estructurar el contenido de la página de inicio con encabezados, pár
 - Correo: mailto:hola@ruedalibre.example (abre la aplicación de correo).
 - Interno: desde el primer párrafo hacia #encuentranos. El h2 de "Encuéntranos" tiene id="encuentranos".
 - Decisión: el id va en minúsculas y sin tilde, y debe coincidir exactamente con el href.
+
+==================================================
+MINIRETO 3: Tarifas y rutas (tablas y enlaces entre carpetas)
+==================================================
+
+Objetivo: estructurar datos tabulares con tablas accesibles y conectar páginas ubicadas en carpetas distintas utilizando rutas relativas.
+
+1. Creación de la página de tarifas (`paginas/tarifas.html`)
+
+* Se creó el archivo `tarifas.html` dentro de la subcarpeta `paginas/`.
+* Incluye la estructura base completa (DOCTYPE, `lang="es"`, codificación UTF-8, viewport y meta description propia).
+* Título de la pestaña: `Rueda Libre | Tarifas y Recorridos`.
+
+2. Tabla 1: Tarifas de alquiler de bicicletas
+
+* Uso de etiquetas tabulares semánticas: `<table>`, `<caption>`, `<thead>`, `<tbody>` y `<tr>`.
+* Celdas de encabezado (`<th>`) configuradas con el atributo `scope` para especificar si describen una columna (`scope="col"`) o una fila (`scope="row"`), garantizando accesibilidad para lectores de pantalla.
+* Contiene los datos exactos de precios por hora, medio día (4 h) y día completo para los tres tipos de bicicleta (Urbana, Montaña y Eléctrica).
+
+3. Tabla 2: Recorridos guiados
+
+* Construida bajo la misma estructura semántica de tabla accesible (`<caption>`, `<thead>`, `<tbody>`, `th` con `scope`).
+* La sección contenedora recibió un identificador único (`id="recorridos"`) para permitir la navegación directa mediante anidamiento de enlaces externos.
+* Contiene los datos detallados de las rutas (Río y Parques, Sabores de Barrio, Reto Las Palmas) con su respectiva distancia, duración, nivel y precio por persona.
+
+4. Información adicional al cliente
+
+* Se agregó la nota informativa aclarando que todas las tarifas incluyen casco y candado.
+* Se detallaron los horarios de salida de los recorridos (sábados y domingos a las 7:00 a. m.).
+* Se incluyó una lista con viñetas (`<ul>`) especificando lo que el cliente debe llevar (ropa cómoda, agua, protector solar y documento de identidad).
+
+5. Uso de rutas relativas y visualización del logo
+
+* Como la página `tarifas.html` se encuentra dentro de la subcarpeta `paginas/`, se construyó la ruta del logotipo subiendo un nivel mediante `../`: `<img src="../img/logo.jpg" alt="Logo de Rueda Libre" width="40">`.
+* Esto permitió que la imagen cargara de forma correcta sin romper la jerarquía del proyecto.
+
+6. Enlaces cruzados y navegación entre carpetas
+
+* Enlace desde la página de inicio (`index.html`) hacia la página de tarifas (`paginas/tarifas.html`).
+* Enlace de retorno desde la página de tarifas hacia el inicio utilizando `../index.html`.
+* Enlace directo desde la sección de recorridos guiados en la página de inicio apuntando exactamente a la tabla correspondiente mediante el ancla (`paginas/tarifas.html#recorridos`).
+
+7. Verificación en DevTools (Network) y control de versiones
+
+* Se revisó la pestaña *Network* (F12) confirmando que no existieran errores 404 y que tanto los archivos HTML como las imágenes cargaran con estado 200 (OK).
+* Se ejecutaron los comandos de Git para guardar los cambios:
+* `git add .`
+* `git commit -m "feat: agrega la pagina de tarifas.html con tablas de precios, recorridos y navegacion cruzada"`
+* `git push origin main`
