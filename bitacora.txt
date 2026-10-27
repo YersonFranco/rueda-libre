@@ -128,3 +128,49 @@ Objetivo: estructurar datos tabulares con tablas accesibles y conectar páginas 
 * `git add .`
 * `git commit -m "feat: agrega la pagina de tarifas.html con tablas de precios, recorridos y navegacion cruzada"`
 * `git push origin main`
+
+==================================================
+MINIRETO 4: Red de caminos (sitio navegable v0.1)
+==================================================
+Objetivo: integrar las tres páginas en un sitio navegable con menú y bloque final comunes, y la página de reservas inicial.
+
+1. Creación de la página de reservas (`paginas/reservas.html`)
+- Se creó el archivo `reservas.html` en la subcarpeta `paginas/`.
+- Incluye la estructura base completa (DOCTYPE, `lang="es"`, UTF-8, viewport y meta description propia).
+- Título de la pestaña: `Rueda Libre | Reservas`.
+- Título principal `<h1>`: "Reserva tu bicicleta".
+- Enlace al correo de contacto utilizando `mailto:hola@ruedalibre.example`.
+- Horario de atención presentado con una lista de definiciones semántica (`<dl>`, `<dt>`, `<dd>`):
+  * `<dt>Lunes a viernes</dt>` -> `<dd>7:00 a. m. a 7:00 p. m.</dd>`
+  * `<dt>Sábados, domingos y festivos</dt>` -> `<dd>6:00 a. m. a 2:00 p. m.</dd>`
+
+2. Menú de navegación global y pie de página
+- Se añadió una lista de enlaces (`<ul>` y `<a>`) al comienzo de las 3 páginas con las opciones: Inicio, Tarifas y rutas, y Reservas.
+- Se ajustaron minuciosamente las rutas relativas según la carpeta de origen:
+  * Desde la raíz (`index.html`) las subcarpetas se enlazan como `paginas/archivo.html`.
+  * Desde la subcarpeta (`paginas/`) se vuelve a la raíz con `../index.html` y entre hermanas con `archivo.html`.
+- Se agregó un bloque de cierre al final de las 3 páginas con el nombre del negocio (Rueda Libre), el correo de contacto y el año actual (2026).
+
+3. Enlaces directos a Reservas ("Reservar ahora")
+- En `index.html`: enlace en la sección "¿Cómo alquilar?" que dirige a `paginas/reservas.html`.
+- En `paginas/tarifas.html`: enlace ubicado debajo de la tabla de recorridos que apunta directamente a `reservas.html`.
+
+4. Tabla de comprobación de rutas relativas (Matriz de Navegación 3x3)
+
+-----------------------------------------------------------------------------------------------------------
+Archivo de Origen     | Destino             | Ruta escrita                       | Código Network / Estado
+-----------------------------------------------------------------------------------------------------------
+index.html            | Inicio              | index.html                         | 200 OK
+index.html            | Tarifas y rutas     | paginas/tarifas.html               | 200 OK
+index.html            | Reservas            | paginas/reservas.html              | 200 OK
+paginas/tarifas.html  | Inicio              | ../index.html                      | 200 OK
+paginas/tarifas.html  | Tarifas y rutas     | tarifas.html                       | 200 OK
+paginas/tarifas.html  | Reservas            | reservas.html                      | 200 OK
+paginas/reservas.html | Inicio              | ../index.html                      | 200 OK
+paginas/reservas.html | Tarifas y rutas     | tarifas.html                       | 200 OK
+paginas/reservas.html | Reservas            | reservas.html                      | 200 OK
+-----------------------------------------------------------------------------------------------------------
+
+5. Verificación en DevTools (Network) y Control de Versiones
+- Se recorrió la totalidad de los 9 enlaces cruzados desde la pestaña *Network* (F12), confirmando 0 errores 404 (Not Found) y respuesta 200 OK en todas las peticiones.
+- Se emitió el commit oficial etiquetando la versión v0.1: `feat: completa la navegacion global del sitio v0.1 y crea paginas/reservas.html`.
