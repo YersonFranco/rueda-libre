@@ -174,3 +174,245 @@ paginas/reservas.html | Reservas            | reservas.html                     
 5. Verificación en DevTools (Network) y Control de Versiones
 - Se recorrió la totalidad de los 9 enlaces cruzados desde la pestaña *Network* (F12), confirmando 0 errores 404 (Not Found) y respuesta 200 OK en todas las peticiones.
 - Se emitió el commit oficial etiquetando la versión v0.1: `feat: completa la navegacion global del sitio v0.1 y crea paginas/reservas.html`.
+
+==================================================
+MINIRETO 5: Estructura semántica y organización del contenido
+==================================================
+
+Objetivo: organizar el contenido de las tres páginas con etiquetas HTML semánticas.
+
+1. Estructura aplicada
+- <header> identifica el encabezado de cada página.
+- <nav> agrupa los enlaces principales: Inicio, Tarifas y rutas, y Reservas.
+- <main> contiene el contenido principal; cada página debe tener un único main.
+- <section> separa los temas principales.
+- <article> agrupa cada servicio independiente de la página de inicio.
+- <aside> contiene información complementaria, como los elementos que debe llevar el cliente y el horario de atención.
+- <footer> contiene el nombre del negocio, correo y año.
+
+2. Encabezados
+- Se mantiene un solo <h1> por página.
+- Los <h2> identifican las secciones principales y los <h3> los contenidos subordinados.
+- La jerarquía de encabezados representa la organización del contenido, no el tamaño visual; los tamaños se controlan con CSS.
+
+3. Rutas y navegación
+- Desde index.html se enlaza a las páginas internas con rutas como paginas/tarifas.html y paginas/reservas.html.
+- Desde archivos dentro de paginas/ se vuelve a la raíz con ../index.html y se enlaza entre páginas hermanas con tarifas.html y reservas.html.
+- La hoja de estilos de las páginas internas se enlaza con ../css/styles.css.
+- La lista del menú utiliza id="menu" para aplicar estilos compartidos.
+- La página activa se identifica con class="activo" y aria-current="page".
+
+4. Elementos no semánticos
+- Se priorizan las etiquetas semánticas cuando describen el propósito del contenido.
+- Los elementos <div> y <span>, si se necesitan, se reservan para agrupaciones o detalles sin una etiqueta semántica más adecuada.
+- No se agregan contenedores innecesarios.
+
+5. Verificación
+- Revisar cada página en DevTools > Elements/Inspector.
+- Confirmar un único <main> y un único <h1> por página.
+- Recorrer los enlaces del menú desde las tres páginas.
+- Resultado de la verificación: [completar después de probar].
+
+==================================================
+MINIRETO 6: Formulario de reservas
+==================================================
+
+Objetivo: crear un formulario organizado con etiquetas accesibles y controles adecuados.
+
+1. Estructura
+- Se utiliza <form action="#" method="post"> como formulario de práctica.
+- Los controles se agrupan en tres fieldset con legend: “Tus datos”, “Tu alquiler” y “Confirmación”.
+- El formulario incluye nombre completo, documento, correo, celular, fecha, tipo de bicicleta, plan, cantidad, recorrido guiado opcional, comentarios opcionales y aceptación de políticas.
+- Se incluye un botón para enviar el formulario.
+
+2. Accesibilidad
+- Cada control debe tener id y una etiqueta <label> asociada mediante for.
+- Los controles enviados deben tener name.
+- Las opciones relacionadas comparten name cuando corresponda.
+- Se usan tipos adecuados como email, tel, date y number.
+- La casilla de aceptación de políticas es obligatoria.
+
+3. Justificación de tres decisiones
+- <fieldset> y <legend> agrupan controles relacionados y explican el propósito de cada grupo.
+- type="email", type="date" y type="number" ofrecen controles apropiados y validaciones básicas del navegador.
+- <label> asociado mediante for e id permite identificar el campo y facilita activarlo al pulsar la etiqueta.
+
+4. Limitación
+- action="#" es provisional: no existe por ello un sistema real que reciba, almacene o confirme las reservas.
+- Para recibir reservas reales será necesario conectar el formulario con un backend o servicio de formularios y definir el tratamiento de los datos personales.
+
+==================================================
+MINIRETO 7: Validación y pruebas del formulario
+==================================================
+
+Objetivo: reducir errores de entrada mediante validaciones HTML y probar datos válidos e inválidos.
+
+1. Reglas configuradas
+- Nombre: obligatorio, minlength="3" y maxlength="60".
+- Documento: obligatorio, de 6 a 10 dígitos; inputmode="numeric" y pattern="[0-9]{6,10}".
+- Correo: obligatorio, type="email".
+- Celular: obligatorio, 10 dígitos que comienzan por 3; pattern="3[0-9]{9}".
+- Fecha: obligatoria, min="2026-11-01" y max="2026-12-31".
+- Tipo de bicicleta y plan: obligatorios.
+- Cantidad: obligatoria, mínimo 1, máximo 6 y step="1".
+- Recorrido: opcional.
+- Comentarios: opcionales, maxlength="300".
+- Aceptación de políticas: obligatoria.
+
+2. Matriz de pruebas
+Completar “Resultado real” después de ejecutar cada prueba; no marcar una prueba como aprobada sin probarla.
+
+Campo | Prueba | Resultado esperado | Resultado real
+Nombre | Vacío | Se impide el envío | [completar]
+Nombre | “Al” | Se exige mínimo de 3 caracteres | [completar]
+Documento | Letras | Se rechaza el formato | [completar]
+Documento | 6–10 dígitos | Se acepta el formato | [completar]
+Correo | “correo-invalido” | Se indica formato inválido | [completar]
+Celular | 3001234567 | Se acepta el formato | [completar]
+Celular | 1234567890 | Se rechaza el formato | [completar]
+Celular | 300123 | Se rechaza el formato | [completar]
+Fecha | Antes de 2026-11-01 | Se impide el envío | [completar]
+Cantidad | 0 | Se impide el envío | [completar]
+Cantidad | 7 | Se impide el envío | [completar]
+Comentarios | Más de 300 caracteres | Se limita la longitud | [completar]
+Políticas | Casilla sin marcar | Se impide el envío | [completar]
+
+3. Prueba de teclado
+- Tab: avanzar por los controles en orden lógico.
+- Shift + Tab: retroceder.
+- Flechas: cambiar opciones en controles compatibles.
+- Barra espaciadora: marcar o desmarcar casillas y seleccionar opciones compatibles.
+- Enter: activar botones o acciones cuando corresponda.
+- Comprobar que el foco siempre sea visible.
+Resultado real de la prueba de teclado: [completar después de probar].
+
+4. Observaciones
+- La validación del navegador ayuda a detectar errores, pero no sustituye la validación del servidor si se implementa un backend.
+- Mientras action="#" sea provisional, no debe afirmarse que el formulario envía reservas reales.
+
+==================================================
+MINIRETO 8: Accesibilidad, contraste y publicación
+==================================================
+
+Objetivo: revisar la accesibilidad básica, registrar hallazgos y publicar el sitio con GitHub Pages.
+
+1. Lista de comprobación
+Verificar cada punto y anotar el resultado real:
+- Documento con lang="es".
+- Texto alternativo descriptivo en imágenes informativas y alt="" en imágenes decorativas.
+- Un solo h1 por página y jerarquía lógica de encabezados.
+- Enlaces con texto que explique el destino o la acción.
+- Menú consistente en las tres páginas.
+- Etiquetas asociadas a todos los controles del formulario.
+- Navegación completa mediante teclado y foco visible.
+- Contraste suficiente entre texto y fondo.
+- Tablas con caption, thead, tbody y th con scope.
+- Enlaces en nueva pestaña con rel="noopener noreferrer" cuando corresponda.
+- Diseño adaptable y contenido que no se desborde en pantallas pequeñas.
+
+2. Registro de hallazgos y correcciones
+N.º | Elemento | Hallazgo/corrección | Estado real
+1 | Rutas CSS internas | Se utiliza ../css/styles.css desde paginas/ | [comprobar]
+2 | Menú | Se utiliza id="menu" para compartir estilos | [comprobar]
+3 | Página activa | Se usan class="activo" y aria-current="page" | [comprobar]
+4 | Foco de teclado | Se añadieron estilos de foco; probar con Tab | [comprobar]
+5 | Formulario | Revisar label, id, name y restricciones | [comprobar]
+6 | Imágenes | Confirmar que cada alt describa la imagen real | [comprobar]
+7 | Contraste | Medir todas las combinaciones con herramienta WCAG | [completar]
+8 | Vista móvil | Probar navegación, tablas y formulario en modo responsive | [completar]
+
+Estos puntos son una lista de revisión; no deben declararse aprobados sin comprobarlos.
+
+3. Contraste de colores
+Criterios WCAG AA:
+- Texto normal: mínimo 4.5:1.
+- Texto grande: mínimo 3:1.
+- Texto grande suele ser de al menos 24 px regular o aproximadamente 18.7 px en negrita.
+
+Combinación | Uso posible | Ratio medido | Evaluación
+Blanco (#FFFFFF) sobre Verde Ruta (#1E7A4F) | Texto sobre verde | [medir] | [completar]
+Blanco (#FFFFFF) sobre Naranja Pedal (#F39A2B) | Texto sobre naranja | [medir] | [completar]
+Azul Noche (#14213D) sobre Naranja Pedal (#F39A2B) | Texto oscuro sobre naranja | [medir] | [completar]
+Azul Noche (#14213D) sobre Crema (#FAF6EF) | Texto principal | [medir] | [completar]
+Gris Asfalto (#5B6470) sobre Crema (#FAF6EF) | Texto secundario | [medir] | [completar]
+Verde Ruta (#1E7A4F) sobre Crema (#FAF6EF) | Enlaces | [medir] | [completar]
+Naranja Pedal (#F39A2B) sobre Crema (#FAF6EF) | Acento o texto | [medir] | [completar]
+Blanco (#FFFFFF) sobre Azul Noche (#14213D) | Encabezado y pie | [medir] | [completar]
+
+Procedimiento:
+- Medir cada combinación con una herramienta de contraste WCAG.
+- Comparar con 4.5:1 para texto normal y 3:1 para texto grande.
+- Clasificar como “Cumple AA para texto normal”, “Cumple solo para texto grande” o “No cumple AA”.
+- Ajustar los colores que no cumplan y volver a medir.
+- Anotar el nombre de la herramienta y los valores obtenidos; no inventar resultados.
+
+4. Mapa de uso de colores
+- Azul Noche (#14213D): encabezados, pie de página y fondos oscuros.
+- Crema (#FAF6EF): fondo general.
+- Verde Ruta (#1E7A4F): enlaces y botones principales, verificando contraste.
+- Naranja Pedal (#F39A2B): acentos, bordes y estados activos; evitar texto pequeño sobre fondos claros si no cumple.
+- Gris Asfalto (#5B6470): bordes y texto secundario solo si el contraste es suficiente.
+- Blanco (#FFFFFF): texto sobre fondos oscuros y superficies claras, comprobando cada combinación.
+
+5. Publicación en GitHub Pages
+- URL pública: https://yersonfranco.github.io/rueda-libre/
+- Repositorio: https://github.com/yersonfranco/rueda-libre
+- Rama prevista: main.
+- La página de inicio pública fue consultada y muestra el menú, título, imágenes, secciones principales y pie de página.
+- La página de inicio contiene enlaces a Tarifas y rutas y a Reservas.
+- La verificación de las páginas internas, recursos, formulario y diseño adaptable debe completarse manualmente antes de declarar todo el sitio verificado.
+
+Lista final:
+Elemento | Estado real
+Inicio | Publicada y consultada
+Tarifas | [abrir y comprobar]
+Reservas | [abrir y comprobar]
+Imágenes de las tres páginas | [comprobar]
+CSS de las tres páginas | [comprobar]
+Menú y enlaces internos | [comprobar]
+Correo y Google Maps | [comprobar]
+Ancla #recorridos | [comprobar]
+Formulario y validaciones | [probar]
+Vista móvil | [comprobar]
+Errores 404 en Network | [comprobar]
+URL en descripción del repositorio | [comprobar]
+Resultado final | [completar tras ejecutar pruebas]
+
+Procedimiento de comprobación:
+- Abrir las tres páginas publicadas.
+- Abrir DevTools > Network y recargar cada una.
+- Revisar que HTML, CSS e imágenes carguen correctamente.
+- Seguir todos los enlaces internos y externos.
+- Probar entradas válidas e inválidas del formulario.
+- Probar teclado y vista responsive.
+- Registrar errores y correcciones reales.
+
+==================================================
+RESUMEN GENERAL DEL PROYECTO
+==================================================
+
+Proyecto: Rueda Libre.
+Descripción: sitio informativo para alquiler de bicicletas y recorridos guiados en Medellín.
+Archivos principales:
+- index.html: inicio.
+- paginas/tarifas.html: tarifas y recorridos.
+- paginas/reservas.html: formulario de reserva y horario.
+- css/styles.css: estilos.
+- img/: recursos visuales.
+- bitacora.txt: registro del proceso.
+URL publicada: https://yersonfranco.github.io/rueda-libre/
+Repositorio: https://github.com/yersonfranco/rueda-libre
+
+Aprendizajes:
+- HTML define estructura y contenido; CSS controla la presentación.
+- Las rutas relativas dependen de la ubicación del archivo.
+- Los formularios pueden aplicar validaciones básicas mediante atributos HTML.
+- La accesibilidad incluye semántica, texto alternativo, etiquetas, teclado, foco y contraste.
+- Git registra la evolución del proyecto y GitHub Pages permite publicar un sitio estático.
+- Las pruebas deben documentarse con resultados reales, sin dar por aprobadas comprobaciones no ejecutadas.
+
+Versiones:
+- v0.1: sitio navegable con inicio, tarifas y reservas, según el commit registrado en el MiniReto 4.
+- v0.2: registrar el hash y el mensaje del commit al completar la versión final.
+- Hash del commit final: [copiar desde git log]
+- Fecha de revisión final: [completar]

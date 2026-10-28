@@ -1,0 +1,599 @@
+/* ==================================================
+   1. VARIABLES GLOBALES
+   Colores, tipografías y espaciados del proyecto
+   ================================================== */
+
+:root {
+  /* Colores de marca */
+  --verde-ruta: #1E7A4F;
+  --naranja-pedal: #F39A2B;
+  --azul-noche: #14213D;
+  --crema: #FAF6EF;
+  --gris-asfalto: #5B6470;
+  --blanco: #FFFFFF;
+
+  /* Tipografías */
+  --fuente-titulos: "Montserrat", Arial, sans-serif;
+  --fuente-texto: "Open Sans", Arial, sans-serif;
+
+  /* Espaciados */
+  --espacio-s: 0.5rem;
+  --espacio-m: 1rem;
+  --espacio-l: 1.5rem;
+  --espacio-xl: 2.5rem;
+
+  /* Otros valores */
+  --ancho-contenido: 60rem;
+  --radio-borde: 0.5rem;
+  --borde-estandar: 1px solid var(--gris-asfalto);
+}
+
+
+/* ==================================================
+   2. RESTABLECIMIENTO Y MODELO DE CAJA
+   ================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--azul-noche);
+  background-color: var(--crema);
+}
+
+
+/* ==================================================
+   3. TIPOGRAFÍA Y CONTENIDO GENERAL
+   ================================================== */
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.3;
+}
+
+h1 {
+  margin: var(--espacio-m) 0;
+}
+
+h2 {
+  padding-bottom: var(--espacio-s);
+  border-bottom: 3px solid var(--verde-ruta);
+}
+
+h3 {
+  margin-top: var(--espacio-l);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--espacio-m);
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  padding-left: var(--espacio-xl);
+}
+
+
+/* ==================================================
+   4. ENCABEZADO Y PIE DE PÁGINA
+   ================================================== */
+
+header,
+footer {
+  padding: var(--espacio-l) var(--espacio-m);
+  color: var(--blanco);
+  background-color: var(--azul-noche);
+  text-align: center;
+}
+
+header img {
+  margin: 0 auto var(--espacio-m);
+}
+
+header p {
+  max-width: var(--ancho-contenido);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+footer {
+  padding-bottom: 5rem;
+}
+
+footer p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ==================================================
+   5. NAVEGACIÓN PRINCIPAL
+   ================================================== */
+
+nav {
+  margin-bottom: var(--espacio-l);
+}
+
+#menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espacio-s) var(--espacio-l);
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+#menu li {
+  margin: 0;
+}
+
+#menu a {
+  display: inline-block;
+  padding: var(--espacio-s) 0;
+
+  color: var(--blanco);
+  font-weight: 600;
+  text-decoration: none;
+
+  border-bottom: 3px solid transparent;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Página actual */
+
+#menu a.activo,
+#menu a[aria-current="page"] {
+  color: var(--naranja-pedal);
+  border-bottom-color: var(--naranja-pedal);
+}
+
+
+/* ==================================================
+   6. ENLACES
+   ================================================== */
+
+a {
+  color: var(--verde-ruta);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--azul-noche);
+}
+
+header a,
+footer a {
+  color: var(--blanco);
+}
+
+header a:hover,
+footer a:hover {
+  color: var(--naranja-pedal);
+}
+
+#menu a:hover {
+  color: var(--naranja-pedal);
+}
+
+
+/* ==================================================
+   7. FOCO Y ACCESIBILIDAD DEL TECLADO
+   ================================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--azul-noche);
+  outline-offset: 3px;
+}
+
+/* Contraste del foco sobre encabezado y pie oscuros */
+
+header a:focus-visible,
+footer a:focus-visible,
+#menu a:focus-visible,
+.whatsapp:focus-visible {
+  outline-color: var(--naranja-pedal);
+}
+
+/* Reduce las animaciones si el usuario lo solicita */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #menu a {
+    transition: none;
+  }
+}
+
+
+/* ==================================================
+   8. CONTENIDO PRINCIPAL Y SECCIONES
+   ================================================== */
+
+main {
+  width: 100%;
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  padding: var(--espacio-l) var(--espacio-m);
+}
+
+section {
+  margin-bottom: var(--espacio-xl);
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+article {
+  margin-bottom: var(--espacio-xl);
+}
+
+article:last-child {
+  margin-bottom: 0;
+}
+
+article img {
+  width: 100%;
+  max-width: 25rem;
+  margin-bottom: var(--espacio-m);
+  border-radius: 0.25rem;
+}
+
+
+/* ==================================================
+   9. TARJETAS
+   Se aplican cuando un elemento utiliza class="tarjeta"
+   ================================================== */
+
+.tarjeta {
+  width: 100%;
+  margin-bottom: var(--espacio-l);
+  padding: var(--espacio-l);
+
+  background-color: var(--blanco);
+  border: 2px solid var(--gris-asfalto);
+  border-radius: var(--radio-borde);
+}
+
+.tarjeta h3 {
+  margin-top: 0;
+}
+
+.tarjeta img {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+
+/* ==================================================
+   10. BLOQUES INFORMATIVOS Y HORARIOS
+   ================================================== */
+
+aside {
+  margin-bottom: var(--espacio-xl);
+  padding: var(--espacio-m);
+
+  background-color: var(--blanco);
+  border-left: 4px solid var(--naranja-pedal);
+}
+
+aside h2,
+aside h3 {
+  margin-top: 0;
+}
+
+dt {
+  margin-top: var(--espacio-m);
+  font-weight: 600;
+}
+
+dt:first-child {
+  margin-top: 0;
+}
+
+dd {
+  margin: 0 0 var(--espacio-s) var(--espacio-m);
+}
+
+
+/* ==================================================
+   11. TABLAS DE TARIFAS Y RECORRIDOS
+   ================================================== */
+
+table {
+  width: 100%;
+  margin-bottom: var(--espacio-l);
+
+  border-collapse: collapse;
+  background-color: var(--blanco);
+}
+
+caption {
+  padding-bottom: var(--espacio-s);
+
+  color: var(--azul-noche);
+  font-weight: 600;
+  text-align: left;
+}
+
+th,
+td {
+  padding: var(--espacio-s) var(--espacio-m);
+  border: var(--borde-estandar);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  color: var(--blanco);
+  background-color: var(--azul-noche);
+}
+
+tbody th {
+  font-weight: 700;
+}
+
+
+/* ==================================================
+   12. FORMULARIO DE RESERVAS
+   ================================================== */
+
+/* Grupos de campos */
+
+fieldset {
+  min-width: 0;
+  margin: 0 0 var(--espacio-l);
+  padding: var(--espacio-m);
+
+  border: 2px solid var(--gris-asfalto);
+  border-radius: var(--radio-borde);
+}
+
+legend {
+  padding: 0 var(--espacio-s);
+
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+/* Etiquetas */
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+/* Etiquetas de radios y casillas */
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  display: inline;
+  font-weight: 400;
+}
+
+/* Campos de entrada */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--espacio-s);
+
+  color: var(--azul-noche);
+  background-color: var(--blanco);
+
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+
+  border: 2px solid var(--gris-asfalto);
+  border-radius: 0.25rem;
+}
+
+/* Área de comentarios */
+
+textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+/* Controles de selección */
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--verde-ruta);
+  cursor: pointer;
+}
+
+/* Separación entre los campos del formulario */
+
+form p {
+  margin-bottom: var(--espacio-l);
+}
+
+
+/* ==================================================
+   13. BOTONES
+   ================================================== */
+
+.boton,
+button {
+  display: inline-block;
+  padding: var(--espacio-m) var(--espacio-l);
+
+  color: var(--blanco);
+  background-color: var(--verde-ruta);
+
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  border: 2px solid transparent;
+  border-radius: var(--radio-borde);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.boton:hover,
+button:hover {
+  color: var(--blanco);
+  background-color: var(--azul-noche);
+}
+
+
+/* ==================================================
+   14. ETIQUETAS POSICIONADAS
+   Se aplican cuando un elemento utiliza class="etiqueta"
+   ================================================== */
+
+.etiqueta {
+  position: absolute;
+  top: var(--espacio-s);
+  right: var(--espacio-s);
+
+  padding: 0.25rem var(--espacio-m);
+
+  color: var(--azul-noche);
+  background-color: var(--naranja-pedal);
+
+  font-weight: 700;
+
+  border-radius: 1rem;
+}
+
+
+/* ==================================================
+   15. BOTÓN FLOTANTE DE WHATSAPP
+   ================================================== */
+
+.whatsapp {
+  position: fixed;
+  right: var(--espacio-l);
+  bottom: var(--espacio-l);
+  z-index: 10;
+
+  display: inline-block;
+  padding: var(--espacio-s) var(--espacio-m);
+
+  color: var(--blanco);
+  background-color: var(--verde-ruta);
+
+  font-weight: 700;
+  text-decoration: none;
+
+  border: 2px solid var(--blanco);
+  border-radius: 2rem;
+
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+}
+
+.whatsapp:hover {
+  color: var(--blanco);
+  background-color: var(--azul-noche);
+}
+
+.whatsapp:focus-visible {
+  outline: 3px solid var(--azul-noche);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--blanco);
+}
+
+
+/* ==================================================
+   16. DISEÑO ADAPTABLE PARA CELULARES
+   ================================================== */
+
+@media (max-width: 600px) {
+  :root {
+    --espacio-xl: 1.75rem;
+  }
+
+  header,
+  footer {
+    padding: var(--espacio-l) var(--espacio-m);
+  }
+
+  #menu {
+    gap: var(--espacio-s) var(--espacio-m);
+  }
+
+  #menu a {
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: var(--espacio-l) var(--espacio-m);
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th,
+  td {
+    padding: var(--espacio-s);
+    overflow-wrap: anywhere;
+  }
+
+  fieldset {
+    padding: var(--espacio-m);
+  }
+
+  .whatsapp {
+    right: var(--espacio-m);
+    bottom: var(--espacio-m);
+  }
+}
