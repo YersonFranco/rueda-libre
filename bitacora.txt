@@ -1,418 +1,242 @@
-BITÁCORA - Rueda Libre
-Proyecto: sitio web de Rueda Libre (alquiler de bicicletas y recorridos guiados en Medellín)
-Autor: Yerson Franco
-==================================================
-MINIRETO 1: Kilómetro 0 (repositorio y página base)
-==================================================
-1. Entorno de trabajo
-- Editor: Visual Studio Code
-- Servidor local: extensión Live Server (http://127.0.0.1:5500)
-- Herramienta de revisión: DevTools del navegador (F12, pestaña Network)
-- Control de versiones: Git, con repositorio inicializado en la carpeta rueda-libre
-
-2. Estructura inicial del proyecto
-- index.html: página de inicio
-- paginas/: carpeta para las demás páginas
-- img/: carpeta de imágenes, con logo.jpg
-- bitacora.txt: este registro
-- Decisión: uso nombres en minúsculas, sin espacios ni tildes, para evitar errores al publicar en GitHub Pages.
-- Decisión: logo.jpg es una imagen provisional; la cambiaré por un logo o una foto de bicicletas.
-
-3. Documento base (index.html)
-- Incluye: DOCTYPE, idioma español (lang="es"), codificación UTF-8, viewport y meta description.
-- Título de la pestaña: Rueda Libre | Alquiler de bicicletas en Medellín
-- Contenido visible: un h1 con el nombre del negocio y un párrafo de bienvenida.
-
-4. Petición del documento (index.html)
-- URL completa: http://127.0.0.1:5500/index.html
-- Protocolo: http
-- Host: 127.0.0.1
-- Puerto: 5500
-- Ruta: /index.html
-- Método: GET
-- Código de estado: 200 (OK)
-- Observación: Live Server mostró el aviso "Live reload enabled"; significa que la página se recarga sola al guardar. No es un error.
-
-5. Ruta inexistente (/promociones.html)
-- URL probada: http://127.0.0.1:5500/promociones.html
-- Método: GET
-- Código de estado: 404 (Not Found)
-- Qué significa: el servidor recibió la petición, pero no encontró ese archivo porque no existe en el proyecto.
-
-6. Roles de cada lenguaje en Rueda Libre
-- HTML: define la estructura y el contenido. Ejemplo: el título "Rueda Libre" y el párrafo de bienvenida de la página de inicio.
-- CSS: define cómo se ve. Ejemplo: cambiar el color y el tamaño del título o el fondo de la página.
-- JavaScript: define lo que hace la página. Ejemplo: mostrar un mensaje al hacer clic en el botón de reservar.
-
-==================================================
-MINIRETO 2: La vitrina de Rueda Libre (página de inicio)
-==================================================
-Objetivo: estructurar el contenido de la página de inicio con encabezados, párrafos, listas, imágenes y enlaces.
-
-1. Esquema de encabezados
-- h1: Rueda Libre (único en toda la página, con el logo al lado).
-- h2: ¿Quiénes somos?, Nuestros servicios, ¿Cómo alquilar?, Encuéntranos.
-- h3 (dentro de "Nuestros servicios"): Alquiler de bicicletas, Recorridos guiados, Taller básico.
-- Decisión: el número del encabezado indica la jerarquía (a qué sección pertenece), no el tamaño. Las secciones hermanas llevan el mismo nivel y no se saltan niveles.
-- Error corregido: al principio puse los títulos en escalera (h2, h3, h4, h5). Lo corregí porque las cuatro secciones son del mismo nivel y los servicios van un nivel por debajo de "Nuestros servicios".
-
-2. Contenido de los servicios
-- Cada h3 tiene su párrafo debajo.
-- strong (información clave): "incluye casco y candado" en el alquiler y "ajustes de frenos y cambios" en el taller.
-- em (matiz): "pensadas para disfrutar sin afán" en los recorridos y "en el mismo día" en el taller.
-- Decisión: strong marca importancia y em marca énfasis. No los uso para cambiar la apariencia, eso se hará con CSS.
-
-3. Listas
-- Lista numerada (ol): los 4 pasos para alquilar, porque el orden importa.
-- Lista con viñetas (ul): los 3 beneficios del servicio, porque el orden no importa. Quedó dentro de "¿Quiénes somos?" con una frase que la presenta.
-- Dentro de ol y ul solo van elementos li.
-
-4. Imágenes
-- Archivos en img/: portada.jpg, bicicleta.jpg, ruta.jpg (además de logo.jpg).
-- Todas con ruta relativa (img/archivo.jpg), sin rutas del tipo C:\ o /home/.
-- Todas con alt y con width definido (600 px la portada, 400 px las demás), sin height, para que no se deformen.
-- Observación: cada foto pesa cerca de 1 MB y mide 1408 x 768 px. Funciona, pero conviene optimizarlas más adelante, porque se muestran a 600 y 400 px de ancho.
-- Aprendizaje: el alt debe describir lo que realmente se ve en la foto, no una descripción de ejemplo.
-
-5. Enlaces
-- Externo (absoluto): búsqueda de Medellín en Google Maps. Lleva target="_blank" para abrir en otra pestaña y rel="noopener noreferrer" por seguridad.
-- Correo: mailto:hola@ruedalibre.example (abre la aplicación de correo).
-- Interno: desde el primer párrafo hacia #encuentranos. El h2 de "Encuéntranos" tiene id="encuentranos".
-- Decisión: el id va en minúsculas y sin tilde, y debe coincidir exactamente con el href.
-
-==================================================
-MINIRETO 3: Tarifas y rutas (tablas y enlaces entre carpetas)
-==================================================
-
-Objetivo: estructurar datos tabulares con tablas accesibles y conectar páginas ubicadas en carpetas distintas utilizando rutas relativas.
-
-1. Creación de la página de tarifas (`paginas/tarifas.html`)
-
-* Se creó el archivo `tarifas.html` dentro de la subcarpeta `paginas/`.
-* Incluye la estructura base completa (DOCTYPE, `lang="es"`, codificación UTF-8, viewport y meta description propia).
-* Título de la pestaña: `Rueda Libre | Tarifas y Recorridos`.
-
-2. Tabla 1: Tarifas de alquiler de bicicletas
-
-* Uso de etiquetas tabulares semánticas: `<table>`, `<caption>`, `<thead>`, `<tbody>` y `<tr>`.
-* Celdas de encabezado (`<th>`) configuradas con el atributo `scope` para especificar si describen una columna (`scope="col"`) o una fila (`scope="row"`), garantizando accesibilidad para lectores de pantalla.
-* Contiene los datos exactos de precios por hora, medio día (4 h) y día completo para los tres tipos de bicicleta (Urbana, Montaña y Eléctrica).
-
-3. Tabla 2: Recorridos guiados
-
-* Construida bajo la misma estructura semántica de tabla accesible (`<caption>`, `<thead>`, `<tbody>`, `th` con `scope`).
-* La sección contenedora recibió un identificador único (`id="recorridos"`) para permitir la navegación directa mediante anidamiento de enlaces externos.
-* Contiene los datos detallados de las rutas (Río y Parques, Sabores de Barrio, Reto Las Palmas) con su respectiva distancia, duración, nivel y precio por persona.
-
-4. Información adicional al cliente
-
-* Se agregó la nota informativa aclarando que todas las tarifas incluyen casco y candado.
-* Se detallaron los horarios de salida de los recorridos (sábados y domingos a las 7:00 a. m.).
-* Se incluyó una lista con viñetas (`<ul>`) especificando lo que el cliente debe llevar (ropa cómoda, agua, protector solar y documento de identidad).
-
-5. Uso de rutas relativas y visualización del logo
-
-* Como la página `tarifas.html` se encuentra dentro de la subcarpeta `paginas/`, se construyó la ruta del logotipo subiendo un nivel mediante `../`: `<img src="../img/logo.jpg" alt="Logo de Rueda Libre" width="40">`.
-* Esto permitió que la imagen cargara de forma correcta sin romper la jerarquía del proyecto.
-
-6. Enlaces cruzados y navegación entre carpetas
-
-* Enlace desde la página de inicio (`index.html`) hacia la página de tarifas (`paginas/tarifas.html`).
-* Enlace de retorno desde la página de tarifas hacia el inicio utilizando `../index.html`.
-* Enlace directo desde la sección de recorridos guiados en la página de inicio apuntando exactamente a la tabla correspondiente mediante el ancla (`paginas/tarifas.html#recorridos`).
-
-7. Verificación en DevTools (Network) y control de versiones
-
-* Se revisó la pestaña *Network* (F12) confirmando que no existieran errores 404 y que tanto los archivos HTML como las imágenes cargaran con estado 200 (OK).
-* Se ejecutaron los comandos de Git para guardar los cambios:
-* `git add .`
-* `git commit -m "feat: agrega la pagina de tarifas.html con tablas de precios, recorridos y navegacion cruzada"`
-* `git push origin main`
-
-==================================================
-MINIRETO 4: Red de caminos (sitio navegable v0.1)
-==================================================
-Objetivo: integrar las tres páginas en un sitio navegable con menú y bloque final comunes, y la página de reservas inicial.
-
-1. Creación de la página de reservas (`paginas/reservas.html`)
-- Se creó el archivo `reservas.html` en la subcarpeta `paginas/`.
-- Incluye la estructura base completa (DOCTYPE, `lang="es"`, UTF-8, viewport y meta description propia).
-- Título de la pestaña: `Rueda Libre | Reservas`.
-- Título principal `<h1>`: "Reserva tu bicicleta".
-- Enlace al correo de contacto utilizando `mailto:hola@ruedalibre.example`.
-- Horario de atención presentado con una lista de definiciones semántica (`<dl>`, `<dt>`, `<dd>`):
-  * `<dt>Lunes a viernes</dt>` -> `<dd>7:00 a. m. a 7:00 p. m.</dd>`
-  * `<dt>Sábados, domingos y festivos</dt>` -> `<dd>6:00 a. m. a 2:00 p. m.</dd>`
-
-2. Menú de navegación global y pie de página
-- Se añadió una lista de enlaces (`<ul>` y `<a>`) al comienzo de las 3 páginas con las opciones: Inicio, Tarifas y rutas, y Reservas.
-- Se ajustaron minuciosamente las rutas relativas según la carpeta de origen:
-  * Desde la raíz (`index.html`) las subcarpetas se enlazan como `paginas/archivo.html`.
-  * Desde la subcarpeta (`paginas/`) se vuelve a la raíz con `../index.html` y entre hermanas con `archivo.html`.
-- Se agregó un bloque de cierre al final de las 3 páginas con el nombre del negocio (Rueda Libre), el correo de contacto y el año actual (2026).
-
-3. Enlaces directos a Reservas ("Reservar ahora")
-- En `index.html`: enlace en la sección "¿Cómo alquilar?" que dirige a `paginas/reservas.html`.
-- En `paginas/tarifas.html`: enlace ubicado debajo de la tabla de recorridos que apunta directamente a `reservas.html`.
-
-4. Tabla de comprobación de rutas relativas (Matriz de Navegación 3x3)
-
------------------------------------------------------------------------------------------------------------
-Archivo de Origen     | Destino             | Ruta escrita                       | Código Network / Estado
------------------------------------------------------------------------------------------------------------
-index.html            | Inicio              | index.html                         | 200 OK
-index.html            | Tarifas y rutas     | paginas/tarifas.html               | 200 OK
-index.html            | Reservas            | paginas/reservas.html              | 200 OK
-paginas/tarifas.html  | Inicio              | ../index.html                      | 200 OK
-paginas/tarifas.html  | Tarifas y rutas     | tarifas.html                       | 200 OK
-paginas/tarifas.html  | Reservas            | reservas.html                      | 200 OK
-paginas/reservas.html | Inicio              | ../index.html                      | 200 OK
-paginas/reservas.html | Tarifas y rutas     | tarifas.html                       | 200 OK
-paginas/reservas.html | Reservas            | reservas.html                      | 200 OK
------------------------------------------------------------------------------------------------------------
-
-5. Verificación en DevTools (Network) y Control de Versiones
-- Se recorrió la totalidad de los 9 enlaces cruzados desde la pestaña *Network* (F12), confirmando 0 errores 404 (Not Found) y respuesta 200 OK en todas las peticiones.
-- Se emitió el commit oficial etiquetando la versión v0.1: `feat: completa la navegacion global del sitio v0.1 y crea paginas/reservas.html`.
-
-==================================================
-MINIRETO 5: Estructura semántica y organización del contenido
-==================================================
-
-Objetivo: organizar el contenido de las tres páginas con etiquetas HTML semánticas.
-
-1. Estructura aplicada
-- <header> identifica el encabezado de cada página.
-- <nav> agrupa los enlaces principales: Inicio, Tarifas y rutas, y Reservas.
-- <main> contiene el contenido principal; cada página debe tener un único main.
-- <section> separa los temas principales.
-- <article> agrupa cada servicio independiente de la página de inicio.
-- <aside> contiene información complementaria, como los elementos que debe llevar el cliente y el horario de atención.
-- <footer> contiene el nombre del negocio, correo y año.
-
-2. Encabezados
-- Se mantiene un solo <h1> por página.
-- Los <h2> identifican las secciones principales y los <h3> los contenidos subordinados.
-- La jerarquía de encabezados representa la organización del contenido, no el tamaño visual; los tamaños se controlan con CSS.
-
-3. Rutas y navegación
-- Desde index.html se enlaza a las páginas internas con rutas como paginas/tarifas.html y paginas/reservas.html.
-- Desde archivos dentro de paginas/ se vuelve a la raíz con ../index.html y se enlaza entre páginas hermanas con tarifas.html y reservas.html.
-- La hoja de estilos de las páginas internas se enlaza con ../css/styles.css.
-- La lista del menú utiliza id="menu" para aplicar estilos compartidos.
-- La página activa se identifica con class="activo" y aria-current="page".
-
-4. Elementos no semánticos
-- Se priorizan las etiquetas semánticas cuando describen el propósito del contenido.
-- Los elementos <div> y <span>, si se necesitan, se reservan para agrupaciones o detalles sin una etiqueta semántica más adecuada.
-- No se agregan contenedores innecesarios.
-
-5. Verificación
-- Revisar cada página en DevTools > Elements/Inspector.
-- Confirmar un único <main> y un único <h1> por página.
-- Recorrer los enlaces del menú desde las tres páginas.
-- Resultado de la verificación: [completar después de probar].
-
-==================================================
-MINIRETO 6: Formulario de reservas
-==================================================
-
-Objetivo: crear un formulario organizado con etiquetas accesibles y controles adecuados.
-
-1. Estructura
-- Se utiliza <form action="#" method="post"> como formulario de práctica.
-- Los controles se agrupan en tres fieldset con legend: “Tus datos”, “Tu alquiler” y “Confirmación”.
-- El formulario incluye nombre completo, documento, correo, celular, fecha, tipo de bicicleta, plan, cantidad, recorrido guiado opcional, comentarios opcionales y aceptación de políticas.
-- Se incluye un botón para enviar el formulario.
-
-2. Accesibilidad
-- Cada control debe tener id y una etiqueta <label> asociada mediante for.
-- Los controles enviados deben tener name.
-- Las opciones relacionadas comparten name cuando corresponda.
-- Se usan tipos adecuados como email, tel, date y number.
-- La casilla de aceptación de políticas es obligatoria.
-
-3. Justificación de tres decisiones
-- <fieldset> y <legend> agrupan controles relacionados y explican el propósito de cada grupo.
-- type="email", type="date" y type="number" ofrecen controles apropiados y validaciones básicas del navegador.
-- <label> asociado mediante for e id permite identificar el campo y facilita activarlo al pulsar la etiqueta.
-
-4. Limitación
-- action="#" es provisional: no existe por ello un sistema real que reciba, almacene o confirme las reservas.
-- Para recibir reservas reales será necesario conectar el formulario con un backend o servicio de formularios y definir el tratamiento de los datos personales.
-
-==================================================
-MINIRETO 7: Validación y pruebas del formulario
-==================================================
-
-Objetivo: reducir errores de entrada mediante validaciones HTML y probar datos válidos e inválidos.
-
-1. Reglas configuradas
-- Nombre: obligatorio, minlength="3" y maxlength="60".
-- Documento: obligatorio, de 6 a 10 dígitos; inputmode="numeric" y pattern="[0-9]{6,10}".
-- Correo: obligatorio, type="email".
-- Celular: obligatorio, 10 dígitos que comienzan por 3; pattern="3[0-9]{9}".
-- Fecha: obligatoria, min="2026-11-01" y max="2026-12-31".
-- Tipo de bicicleta y plan: obligatorios.
-- Cantidad: obligatoria, mínimo 1, máximo 6 y step="1".
-- Recorrido: opcional.
-- Comentarios: opcionales, maxlength="300".
-- Aceptación de políticas: obligatoria.
-
-2. Matriz de pruebas
-Completar “Resultado real” después de ejecutar cada prueba; no marcar una prueba como aprobada sin probarla.
-
-Campo | Prueba | Resultado esperado | Resultado real
-Nombre | Vacío | Se impide el envío | [completar]
-Nombre | “Al” | Se exige mínimo de 3 caracteres | [completar]
-Documento | Letras | Se rechaza el formato | [completar]
-Documento | 6–10 dígitos | Se acepta el formato | [completar]
-Correo | “correo-invalido” | Se indica formato inválido | [completar]
-Celular | 3001234567 | Se acepta el formato | [completar]
-Celular | 1234567890 | Se rechaza el formato | [completar]
-Celular | 300123 | Se rechaza el formato | [completar]
-Fecha | Antes de 2026-11-01 | Se impide el envío | [completar]
-Cantidad | 0 | Se impide el envío | [completar]
-Cantidad | 7 | Se impide el envío | [completar]
-Comentarios | Más de 300 caracteres | Se limita la longitud | [completar]
-Políticas | Casilla sin marcar | Se impide el envío | [completar]
-
-3. Prueba de teclado
-- Tab: avanzar por los controles en orden lógico.
-- Shift + Tab: retroceder.
-- Flechas: cambiar opciones en controles compatibles.
-- Barra espaciadora: marcar o desmarcar casillas y seleccionar opciones compatibles.
-- Enter: activar botones o acciones cuando corresponda.
-- Comprobar que el foco siempre sea visible.
-Resultado real de la prueba de teclado: [completar después de probar].
-
-4. Observaciones
-- La validación del navegador ayuda a detectar errores, pero no sustituye la validación del servidor si se implementa un backend.
-- Mientras action="#" sea provisional, no debe afirmarse que el formulario envía reservas reales.
-
-==================================================
-MINIRETO 8: Accesibilidad, contraste y publicación
-==================================================
-
-Objetivo: revisar la accesibilidad básica, registrar hallazgos y publicar el sitio con GitHub Pages.
-
-1. Lista de comprobación
-Verificar cada punto y anotar el resultado real:
-- Documento con lang="es".
-- Texto alternativo descriptivo en imágenes informativas y alt="" en imágenes decorativas.
-- Un solo h1 por página y jerarquía lógica de encabezados.
-- Enlaces con texto que explique el destino o la acción.
-- Menú consistente en las tres páginas.
-- Etiquetas asociadas a todos los controles del formulario.
-- Navegación completa mediante teclado y foco visible.
-- Contraste suficiente entre texto y fondo.
-- Tablas con caption, thead, tbody y th con scope.
-- Enlaces en nueva pestaña con rel="noopener noreferrer" cuando corresponda.
-- Diseño adaptable y contenido que no se desborde en pantallas pequeñas.
-
-2. Registro de hallazgos y correcciones
-N.º | Elemento | Hallazgo/corrección | Estado real
-1 | Rutas CSS internas | Se utiliza ../css/styles.css desde paginas/ | [comprobar]
-2 | Menú | Se utiliza id="menu" para compartir estilos | [comprobar]
-3 | Página activa | Se usan class="activo" y aria-current="page" | [comprobar]
-4 | Foco de teclado | Se añadieron estilos de foco; probar con Tab | [comprobar]
-5 | Formulario | Revisar label, id, name y restricciones | [comprobar]
-6 | Imágenes | Confirmar que cada alt describa la imagen real | [comprobar]
-7 | Contraste | Medir todas las combinaciones con herramienta WCAG | [completar]
-8 | Vista móvil | Probar navegación, tablas y formulario en modo responsive | [completar]
-
-Estos puntos son una lista de revisión; no deben declararse aprobados sin comprobarlos.
-
-3. Contraste de colores
-Criterios WCAG AA:
-- Texto normal: mínimo 4.5:1.
-- Texto grande: mínimo 3:1.
-- Texto grande suele ser de al menos 24 px regular o aproximadamente 18.7 px en negrita.
-
-Combinación | Uso posible | Ratio medido | Evaluación
-Blanco (#FFFFFF) sobre Verde Ruta (#1E7A4F) | Texto sobre verde | [medir] | [completar]
-Blanco (#FFFFFF) sobre Naranja Pedal (#F39A2B) | Texto sobre naranja | [medir] | [completar]
-Azul Noche (#14213D) sobre Naranja Pedal (#F39A2B) | Texto oscuro sobre naranja | [medir] | [completar]
-Azul Noche (#14213D) sobre Crema (#FAF6EF) | Texto principal | [medir] | [completar]
-Gris Asfalto (#5B6470) sobre Crema (#FAF6EF) | Texto secundario | [medir] | [completar]
-Verde Ruta (#1E7A4F) sobre Crema (#FAF6EF) | Enlaces | [medir] | [completar]
-Naranja Pedal (#F39A2B) sobre Crema (#FAF6EF) | Acento o texto | [medir] | [completar]
-Blanco (#FFFFFF) sobre Azul Noche (#14213D) | Encabezado y pie | [medir] | [completar]
-
-Procedimiento:
-- Medir cada combinación con una herramienta de contraste WCAG.
-- Comparar con 4.5:1 para texto normal y 3:1 para texto grande.
-- Clasificar como “Cumple AA para texto normal”, “Cumple solo para texto grande” o “No cumple AA”.
-- Ajustar los colores que no cumplan y volver a medir.
-- Anotar el nombre de la herramienta y los valores obtenidos; no inventar resultados.
-
-4. Mapa de uso de colores
-- Azul Noche (#14213D): encabezados, pie de página y fondos oscuros.
-- Crema (#FAF6EF): fondo general.
-- Verde Ruta (#1E7A4F): enlaces y botones principales, verificando contraste.
-- Naranja Pedal (#F39A2B): acentos, bordes y estados activos; evitar texto pequeño sobre fondos claros si no cumple.
-- Gris Asfalto (#5B6470): bordes y texto secundario solo si el contraste es suficiente.
-- Blanco (#FFFFFF): texto sobre fondos oscuros y superficies claras, comprobando cada combinación.
-
-5. Publicación en GitHub Pages
-- URL pública: https://yersonfranco.github.io/rueda-libre/
-- Repositorio: https://github.com/yersonfranco/rueda-libre
-- Rama prevista: main.
-- La página de inicio pública fue consultada y muestra el menú, título, imágenes, secciones principales y pie de página.
-- La página de inicio contiene enlaces a Tarifas y rutas y a Reservas.
-- La verificación de las páginas internas, recursos, formulario y diseño adaptable debe completarse manualmente antes de declarar todo el sitio verificado.
-
-Lista final:
-Elemento | Estado real
-Inicio | Publicada y consultada
-Tarifas | [abrir y comprobar]
-Reservas | [abrir y comprobar]
-Imágenes de las tres páginas | [comprobar]
-CSS de las tres páginas | [comprobar]
-Menú y enlaces internos | [comprobar]
-Correo y Google Maps | [comprobar]
-Ancla #recorridos | [comprobar]
-Formulario y validaciones | [probar]
-Vista móvil | [comprobar]
-Errores 404 en Network | [comprobar]
-URL en descripción del repositorio | [comprobar]
-Resultado final | [completar tras ejecutar pruebas]
-
-Procedimiento de comprobación:
-- Abrir las tres páginas publicadas.
-- Abrir DevTools > Network y recargar cada una.
-- Revisar que HTML, CSS e imágenes carguen correctamente.
-- Seguir todos los enlaces internos y externos.
-- Probar entradas válidas e inválidas del formulario.
-- Probar teclado y vista responsive.
-- Registrar errores y correcciones reales.
-
-==================================================
-RESUMEN GENERAL DEL PROYECTO
-==================================================
-
-Proyecto: Rueda Libre.
-Descripción: sitio informativo para alquiler de bicicletas y recorridos guiados en Medellín.
-Archivos principales:
-- index.html: inicio.
-- paginas/tarifas.html: tarifas y recorridos.
-- paginas/reservas.html: formulario de reserva y horario.
-- css/styles.css: estilos.
-- img/: recursos visuales.
-- bitacora.txt: registro del proceso.
-URL publicada: https://yersonfranco.github.io/rueda-libre/
-Repositorio: https://github.com/yersonfranco/rueda-libre
-
-Aprendizajes:
-- HTML define estructura y contenido; CSS controla la presentación.
-- Las rutas relativas dependen de la ubicación del archivo.
-- Los formularios pueden aplicar validaciones básicas mediante atributos HTML.
-- La accesibilidad incluye semántica, texto alternativo, etiquetas, teclado, foco y contraste.
-- Git registra la evolución del proyecto y GitHub Pages permite publicar un sitio estático.
-- Las pruebas deben documentarse con resultados reales, sin dar por aprobadas comprobaciones no ejecutadas.
-
-Versiones:
-- v0.1: sitio navegable con inicio, tarifas y reservas, según el commit registrado en el MiniReto 4.
-- v0.2: registrar el hash y el mensaje del commit al completar la versión final.
-- Hash del commit final: [copiar desde git log]
-- Fecha de revisión final: [completar]
+BITÁCORA - RUEDA LIBRE Proyecto: sitio web de alquiler de bicicletas y
+recorridos guiados en Medellín Autor: Yerson Franco Fecha de revisión:
+28 de octubre de 2026
+
+Repositorio: https://github.com/yersonfranco/rueda-libre Sitio
+publicado: https://yersonfranco.github.io/rueda-libre/
+
+================================================== MINIRETO 1: KILÓMETRO
+0 ================================================== Entorno: - Editor:
+Visual Studio Code. - Servidor local: Live Server
+(http://127.0.0.1:5500). - Herramientas: DevTools (Network y
+Elements). - Control de versiones: Git, rama main.
+
+Estructura del proyecto: - index.html: página de inicio. -
+paginas/tarifas.html: precios y recorridos. - paginas/reservas.html:
+formulario y horario. - css/styles.css: estilos compartidos. - img/:
+logotipo e imágenes. - bitacora.txt: documentación del proyecto.
+
+Se utilizan nombres de archivos en minúsculas, sin espacios ni tildes,
+para reducir errores de rutas en GitHub Pages.
+
+Documento base: HTML5, lang=“es”, UTF-8, viewport, meta description y
+título “Rueda Libre | Alquiler de bicicletas en Medellín”.
+
+Petición local de referencia: - URL: http://127.0.0.1:5500/index.html -
+Protocolo: http; host: 127.0.0.1; puerto: 5500; ruta: /index.html. -
+Método: GET; estado observado durante la prueba inicial: 200 OK. - Una
+petición a /promociones.html devolvió 404 Not Found porque el archivo no
+existe. - HTML define estructura y contenido; CSS define presentación;
+JavaScript permite añadir comportamiento e interactividad.
+
+================================================== MINIRETO 2: PÁGINA DE
+INICIO ================================================== La página
+contiene un h1 (“Rueda Libre”), secciones con h2 y títulos h3 para los
+servicios. La jerarquía representa la organización del contenido, no su
+tamaño visual.
+
+Se emplean strong para información importante y em para énfasis. La
+lista ol presenta cuatro pasos de alquiler; la lista ul presenta tres
+beneficios. Los elementos de lista se organizan con li.
+
+Las imágenes tienen rutas relativas, alt descriptivos y atributos de
+dimensiones. La versión actual referencia: logo.jpg, portada.jpg,
+bicicleta.jpg, bici-urbana.jpg, bici-montana.jpg, bici-electrica.jpg,
+recorrido-guiado.jpg y taller-bicicletas.jpg. Los nombres deben
+coincidir exactamente con los archivos existentes.
+
+Se incluyen enlaces internos mediante id, enlaces a páginas del
+proyecto, Google Maps con target=“_blank” y rel=“noopener noreferrer”, y
+un enlace mailto para el correo de contacto.
+
+================================================== MINIRETO 3: TARIFAS Y
+RUTAS ================================================== La página
+paginas/tarifas.html contiene tablas semánticas con table, caption,
+thead, tbody y encabezados th con scope.
+
+Tarifas: - Urbana: $10.000 COP / 1 hora; $30.000 / medio día (4 horas);
+$50.000 / día completo. - Montaña: $15.000 / 1 hora; $45.000 / medio
+día; $70.000 / día completo. - Eléctrica: $25.000 / 1 hora; $70.000 /
+medio día; $110.000 / día completo.
+
+Recorridos: - Río y Parques: 12 km, 2 horas, Fácil, $45.000 COP por
+persona. - Sabores de Barrio: 18 km, 3 horas, Medio, $60.000 COP por
+persona. - Reto Las Palmas: 25 km, 4 horas, Difícil, $85.000 COP por
+persona.
+
+Se informa que el alquiler incluye casco y candado; las salidas guiadas
+son sábados y domingos a las 7:00 a. m. Se recomienda llevar ropa
+cómoda, agua, protector solar y documento de identidad.
+
+Como la página está dentro de paginas/, los recursos de la raíz se
+referencian con ../, por ejemplo ../img/logo.jpg y ../css/styles.css. El
+ancla id=“recorridos” permite acceder directamente a esa sección.
+
+================================================== MINIRETO 4:
+NAVEGACIÓN GLOBAL V0.1
+================================================== Se crearon las
+páginas index.html, paginas/tarifas.html y paginas/reservas.html. Las
+tres comparten menú y pie de página.
+
+Rutas principales: - Desde index.html: paginas/tarifas.html y
+paginas/reservas.html. - Desde paginas/: ../index.html y los archivos
+hermanos tarifas.html y reservas.html.
+
+Matriz de navegación: index.html -> Inicio: index.html index.html ->
+Tarifas: paginas/tarifas.html index.html -> Reservas:
+paginas/reservas.html paginas/tarifas.html -> Inicio: ../index.html
+paginas/tarifas.html -> Tarifas: tarifas.html paginas/tarifas.html ->
+Reservas: reservas.html paginas/reservas.html -> Inicio: ../index.html
+paginas/reservas.html -> Tarifas: tarifas.html paginas/reservas.html ->
+Reservas: reservas.html
+
+La página de reservas incluye el horario mediante dl, dt y dd: - Lunes a
+viernes: 7:00 a. m. a 7:00 p. m. - Sábados, domingos y festivos: 6:00 a.
+m. a 2:00 p. m.
+
+El historial de Git registra la versión navegable v0.1.
+
+================================================== MINIRETO 5: HTML
+SEMÁNTICO ================================================== Se utilizan
+header, nav, main, section, article, aside y footer de acuerdo con el
+propósito de cada bloque. Cada página debe conservar un único main y un
+h1. Los h2 representan secciones y los h3 contenidos subordinados.
+
+Los elementos div y span se reservan para agrupaciones o detalles sin
+una etiqueta semántica más adecuada. El menú usa id=“menu”; la página
+actual se marca con class=“activo” y aria-current=“page”.
+
+================================================== MINIRETO 6:
+FORMULARIO ================================================== El
+formulario de reservas se organiza con form, fieldset y legend en tres
+grupos: “Tus datos”, “Tu alquiler” y “Confirmación”. Incluye nombre,
+documento, correo, celular, fecha, tipo de bicicleta, plan, cantidad,
+recorrido opcional, comentarios y aceptación de políticas.
+
+Los controles tienen label asociado mediante for/id y atributo name. Se
+usan tipos adecuados como email, tel, date y number.
+
+Justificación: - fieldset y legend agrupan controles relacionados. -
+email, date y number ofrecen controles apropiados y validación nativa. -
+label asociado facilita identificar y activar el campo.
+
+El formulario utiliza action=“#” como práctica. Esto no almacena ni
+confirma reservas; para uso real se necesita un backend o servicio de
+formularios y tratamiento apropiado de datos personales.
+
+================================================== MINIRETO 7:
+VALIDACIÓN ================================================== Reglas
+implementadas: - Nombre: obligatorio, entre 3 y 60 caracteres. -
+Documento: obligatorio, de 6 a 10 dígitos; pattern=“[0-9]{6,10}”. -
+Correo: obligatorio, type=“email”. - Celular: obligatorio, 10 dígitos
+comenzando por 3; pattern=“3[0-9]{9}”. - Fecha: obligatoria, entre
+2026-11-01 y 2026-12-31. - Tipo de bicicleta y plan: obligatorios. -
+Cantidad: obligatoria, de 1 a 6, step=“1”. - Recorrido y comentarios:
+opcionales; comentarios con maxlength=“300”. - Aceptación de políticas:
+obligatoria.
+
+Casos que deben quedar cubiertos por la evidencia de prueba: - Nombre
+vacío y nombre de dos caracteres. - Documento con letras y documento de
+6 a 10 dígitos. - Correo inválido. - Celular válido 3001234567 e
+inválidos 1234567890 y 300123. - Fecha anterior al mínimo. - Cantidad 0
+y 7. - Comentarios que excedan 300 caracteres. - Políticas sin marcar.
+
+La prueba de teclado debe contemplar Tab, Shift+Tab, flechas, barra
+espaciadora y Enter, y confirmar que el foco sea visible. El autor
+indica que las páginas fueron probadas; si la rúbrica pide resultados
+individuales, conservar los resultados reales o capturas, sin inventar
+mediciones.
+
+================================================== MINIRETO 8:
+ACCESIBILIDAD Y PUBLICACIÓN
+================================================== Lista de revisión:
+lang=“es”; alt descriptivos; jerarquía de encabezados; enlaces
+comprensibles; labels asociados; foco visible; tablas accesibles;
+rel=“noopener noreferrer” cuando corresponde; vista adaptable; ausencia
+de errores 404 en recursos.
+
+Contraste WCAG AA calculado con los colores definidos. Requisitos: 4.5:1
+para texto normal y 3:1 para texto grande.
+
+Combinación | Ratio aproximado | Texto normal Blanco (#FFFFFF) sobre
+Verde Ruta (#1E7A4F) | 5.2:1 | Cumple AA Blanco (#FFFFFF) sobre Naranja
+Pedal (#F39A2B) | 2.1:1 | No cumple AA Azul Noche (#14213D) sobre
+Naranja Pedal (#F39A2B) | 6.7:1 | Cumple AA Azul Noche (#14213D) sobre
+Crema (#FAF6EF) | 14.6:1 | Cumple AA Gris Asfalto (#5B6470) sobre Crema
+(#FAF6EF) | 5.5:1 | Cumple AA Verde Ruta (#1E7A4F) sobre Crema (#FAF6EF)
+| 5.1:1 | Cumple AA Naranja Pedal (#F39A2B) sobre Crema (#FAF6EF) |
+2.1:1 | No cumple AA Blanco (#FFFFFF) sobre Azul Noche (#14213D) |
+15.9:1 | Cumple AA
+
+Decisión: utilizar texto azul oscuro sobre naranja y evitar texto
+naranja pequeño sobre fondo crema. Los ratios corresponden a los valores
+hex indicados; verificar también los usos reales en la hoja CSS.
+
+Repositorio: https://github.com/yersonfranco/rueda-libre Sitio:
+https://yersonfranco.github.io/rueda-libre/ El autor informa que las
+páginas fueron probadas. Para una entrega reproducible, revisar las tres
+páginas publicadas, imágenes, CSS, enlaces, formulario, teclado, vista
+móvil y Network antes de afirmar que todos los criterios quedaron
+aprobados.
+
+================================================== MINIRETO 9:
+TIPOGRAFÍA, VARIABLES Y HERENCIA
+================================================== Se integraron
+Montserrat 700 para títulos y Open Sans para texto mediante Google Fonts
+antes de enlazar la hoja de estilos. Las variables CSS reúnen colores,
+tipografías, espaciado, ancho de contenido y radio de borde. El body
+define tipografía, color y fondo. DevTools permite comprobar propiedades
+heredadas y no heredadas.
+
+================================================== MINIRETO 10:
+SELECTORES Y ESPECIFICIDAD
+================================================== El menú usa id=“menu”
+y la clase activo identifica el enlace actual. Un selector con ID, como
+#menu a, tiene mayor especificidad que una clase como .activo; por eso
+una regla de ID puede prevalecer sobre el color de la clase. La solución
+debe ajustar selectores sin !important ni estilos inline. Se consideran
+estados :hover y :focus visibles.
+
+================================================== MINIRETO 11: MODELO
+DE CAJA ================================================== Se utiliza
+box-sizing: border-box; el contenido principal tiene ancho máximo y
+centrado; las tarjetas se distribuyen en cuadrícula adaptable; las
+imágenes se ajustan al ancho; tablas y formularios tienen bordes y
+espaciado. Se usan rem, porcentajes y vh según su propósito. Las
+mediciones exactas de una tarjeta antes y después de box-sizing deben
+copiarse de DevTools si la rúbrica las solicita.
+
+================================================== MINIRETO 12:
+POSICIONAMIENTO Y LANZAMIENTO
+================================================== La tarjeta de
+bicicletas eléctricas sirve como referencia para posicionar la etiqueta
+“Nuevo” con position:absolute sin mover el contenido. El acceso de
+WhatsApp utiliza position:fixed. Se mantiene consistencia en menú,
+encabezados, botones y pie de página. El cierre requiere actualizar la
+bitácora, comprobar la publicación y crear un commit final.
+
+================================================== RESUMEN GENERAL Y
+CIERRE ================================================== Proyecto:
+Rueda Libre, sitio informativo para alquiler de bicicletas y recorridos
+guiados en Medellín.
+
+Archivos: - index.html - paginas/tarifas.html - paginas/reservas.html -
+css/styles.css - img/ - bitacora.txt
+
+Aprendizajes: - HTML organiza estructura y contenido; CSS controla
+presentación. - Las rutas relativas dependen de la ubicación del
+archivo. - Tablas semánticas mejoran la comprensión de datos. - HTML
+permite validaciones básicas del formulario. - Accesibilidad incluye
+semántica, textos alternativos, etiquetas, teclado, foco y contraste. -
+Git registra la evolución y GitHub Pages publica sitios estáticos. - Las
+evidencias deben reflejar pruebas reales, sin inventar resultados.
+
+Versiones: - v0.1: navegación global entre inicio, tarifas y reservas. -
+v0.2: cierre de la semana 1 tras actualizar la bitácora y registrar el
+commit final. - Mensaje sugerido: docs: completa bitacora y cierra la
+semana 1 - Hash final: copiar después de ejecutar git log -1 –oneline. -
+Fecha de cierre: 28 de octubre de 2026.
+
+Nota: el formulario usa action=“#” y no guarda reservas en un servidor.
+Las mediciones específicas de DevTools y los resultados individuales de
+pruebas deben añadirse únicamente si se han registrado realmente.

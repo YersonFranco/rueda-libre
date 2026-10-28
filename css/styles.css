@@ -1,6 +1,5 @@
 /* ==================================================
    1. VARIABLES GLOBALES
-   Colores, tipografías y espaciados del proyecto
    ================================================== */
 
 :root {
@@ -16,13 +15,13 @@
   --fuente-titulos: "Montserrat", Arial, sans-serif;
   --fuente-texto: "Open Sans", Arial, sans-serif;
 
-  /* Espaciados */
+  /* Espaciado */
   --espacio-s: 0.5rem;
   --espacio-m: 1rem;
   --espacio-l: 1.5rem;
   --espacio-xl: 2.5rem;
 
-  /* Otros valores */
+  /* Dimensiones y bordes */
   --ancho-contenido: 60rem;
   --radio-borde: 0.5rem;
   --borde-estandar: 1px solid var(--gris-asfalto);
@@ -45,16 +44,16 @@ html {
 
 body {
   margin: 0;
+  color: var(--azul-noche);
+  background-color: var(--crema);
   font-family: var(--fuente-texto);
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--azul-noche);
-  background-color: var(--crema);
 }
 
 
 /* ==================================================
-   3. TIPOGRAFÍA Y CONTENIDO GENERAL
+   3. TIPOGRAFÍA Y ELEMENTOS GENERALES
    ================================================== */
 
 h1,
@@ -66,15 +65,20 @@ h3 {
 
 h1 {
   margin: var(--espacio-m) 0;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 h2 {
+  margin-top: 0;
+  margin-bottom: var(--espacio-l);
   padding-bottom: var(--espacio-s);
   border-bottom: 3px solid var(--verde-ruta);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
 }
 
 h3 {
   margin-top: var(--espacio-l);
+  font-size: 1.2rem;
 }
 
 p {
@@ -101,6 +105,16 @@ ol {
   padding-left: var(--espacio-xl);
 }
 
+figure {
+  margin: 0 0 var(--espacio-l);
+}
+
+figcaption {
+  margin-top: var(--espacio-s);
+  color: var(--gris-asfalto);
+  font-size: 0.9rem;
+}
+
 
 /* ==================================================
    4. ENCABEZADO Y PIE DE PÁGINA
@@ -115,26 +129,43 @@ footer {
 }
 
 header img {
+  width: 5rem;
   margin: 0 auto var(--espacio-m);
+  border-radius: 0.25rem;
+}
+
+header h1 {
+  margin-bottom: var(--espacio-s);
 }
 
 header p {
-  max-width: var(--ancho-contenido);
+  max-width: 45rem;
   margin-right: auto;
   margin-left: auto;
 }
 
 footer {
-  padding-bottom: 5rem;
+  margin-top: var(--espacio-xl);
+  padding-bottom: 6rem;
 }
 
 footer p:last-child {
   margin-bottom: 0;
 }
 
+footer a {
+  overflow-wrap: anywhere;
+}
+
 
 /* ==================================================
    5. NAVEGACIÓN PRINCIPAL
+   Estructura esperada:
+   <nav>
+     <ul id="menu">
+       <li><a href="...">...</a></li>
+     </ul>
+   </nav>
    ================================================== */
 
 nav {
@@ -145,16 +176,17 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: var(--espacio-s) var(--espacio-l);
 
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
 #menu li {
   margin: 0;
+  padding: 0;
 }
 
 #menu a {
@@ -172,7 +204,7 @@ nav {
     border-color 0.2s ease;
 }
 
-/* Página actual */
+/* Página activa */
 
 #menu a.activo,
 #menu a[aria-current="page"] {
@@ -180,9 +212,16 @@ nav {
   border-bottom-color: var(--naranja-pedal);
 }
 
+/* Interacción del menú */
+
+#menu a:hover {
+  color: var(--naranja-pedal);
+  border-bottom-color: var(--naranja-pedal);
+}
+
 
 /* ==================================================
-   6. ENLACES
+   6. ENLACES GENERALES
    ================================================== */
 
 a {
@@ -204,10 +243,6 @@ footer a:hover {
   color: var(--naranja-pedal);
 }
 
-#menu a:hover {
-  color: var(--naranja-pedal);
-}
-
 
 /* ==================================================
    7. FOCO Y ACCESIBILIDAD DEL TECLADO
@@ -222,37 +257,41 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
-/* Contraste del foco sobre encabezado y pie oscuros */
+/* Foco visible sobre fondos oscuros */
 
 header a:focus-visible,
 footer a:focus-visible,
-#menu a:focus-visible,
-.whatsapp:focus-visible {
+#menu a:focus-visible {
   outline-color: var(--naranja-pedal);
 }
 
-/* Reduce las animaciones si el usuario lo solicita */
+/* Evitar animaciones cuando el usuario lo solicita */
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  #menu a {
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
 
 
 /* ==================================================
-   8. CONTENIDO PRINCIPAL Y SECCIONES
+   8. CONTENIDO PRINCIPAL
    ================================================== */
 
 main {
   width: 100%;
   max-width: var(--ancho-contenido);
   margin: 0 auto;
-  padding: var(--espacio-l) var(--espacio-m);
+  padding: var(--espacio-xl) var(--espacio-l);
 }
 
 section {
@@ -264,7 +303,7 @@ section:last-child {
 }
 
 article {
-  margin-bottom: var(--espacio-xl);
+  margin-bottom: var(--espacio-l);
 }
 
 article:last-child {
@@ -278,19 +317,33 @@ article img {
   border-radius: 0.25rem;
 }
 
+/* Imágenes de portada o presentación */
+
+.imagen-portada {
+  width: 100%;
+  max-width: 100%;
+  max-height: 32rem;
+  margin-bottom: var(--espacio-l);
+  object-fit: cover;
+  border-radius: var(--radio-borde);
+}
+
 
 /* ==================================================
-   9. TARJETAS
-   Se aplican cuando un elemento utiliza class="tarjeta"
+   9. TARJETAS DE SERVICIOS
    ================================================== */
 
 .tarjeta {
+  position: relative;
+
   width: 100%;
   margin-bottom: var(--espacio-l);
   padding: var(--espacio-l);
 
+  color: var(--azul-noche);
   background-color: var(--blanco);
-  border: 2px solid var(--gris-asfalto);
+
+  border: 1px solid var(--gris-asfalto);
   border-radius: var(--radio-borde);
 }
 
@@ -298,22 +351,76 @@ article img {
   margin-top: 0;
 }
 
+.tarjeta p:last-child {
+  margin-bottom: 0;
+}
+
 .tarjeta img {
   width: 100%;
+  max-width: 100%;
+  margin-bottom: var(--espacio-m);
   border-radius: 0.25rem;
+}
+
+/* Organización de las tarjetas de servicios */
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-l);
+}
+
+.servicios-grid .tarjeta {
+  margin-bottom: 0;
+}
+
+/* En pantallas pequeñas, una tarjeta por fila */
+
+@media (max-width: 40rem) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 
 /* ==================================================
-   10. BLOQUES INFORMATIVOS Y HORARIOS
+   10. ETIQUETA "NUEVO"
+   La tarjeta padre debe tener position: relative.
+   ================================================== */
+
+.etiqueta {
+  position: absolute;
+  top: var(--espacio-s);
+  right: var(--espacio-s);
+  z-index: 1;
+
+  display: inline-block;
+  padding: 0.25rem var(--espacio-m);
+
+  color: var(--azul-noche);
+  background-color: var(--naranja-pedal);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.4;
+
+  border-radius: 1rem;
+}
+
+
+/* ==================================================
+   11. BLOQUES INFORMATIVOS Y HORARIOS
    ================================================== */
 
 aside {
-  margin-bottom: var(--espacio-xl);
-  padding: var(--espacio-m);
+  margin: var(--espacio-xl) 0;
+  padding: var(--espacio-l);
 
+  color: var(--azul-noche);
   background-color: var(--blanco);
+
   border-left: 4px solid var(--naranja-pedal);
+  border-radius: 0 var(--radio-borde) var(--radio-borde) 0;
 }
 
 aside h2,
@@ -336,7 +443,7 @@ dd {
 
 
 /* ==================================================
-   11. TABLAS DE TARIFAS Y RECORRIDOS
+   12. TABLAS DE TARIFAS Y RECORRIDOS
    ================================================== */
 
 table {
@@ -369,20 +476,37 @@ thead th {
 }
 
 tbody th {
+  color: var(--azul-noche);
+  background-color: var(--crema);
   font-weight: 700;
+}
+
+/* Permite desplazamiento horizontal si una tabla es muy ancha.
+   La tabla conserva su estructura HTML. */
+
+.tabla-contenedor {
+  width: 100%;
+  margin-bottom: var(--espacio-l);
+  overflow-x: auto;
+}
+
+.tabla-contenedor table {
+  margin-bottom: 0;
 }
 
 
 /* ==================================================
-   12. FORMULARIO DE RESERVAS
+   13. FORMULARIO DE RESERVAS
    ================================================== */
 
-/* Grupos de campos */
+form {
+  width: 100%;
+}
 
 fieldset {
   min-width: 0;
   margin: 0 0 var(--espacio-l);
-  padding: var(--espacio-m);
+  padding: var(--espacio-l);
 
   border: 2px solid var(--gris-asfalto);
   border-radius: var(--radio-borde);
@@ -391,27 +515,21 @@ fieldset {
 legend {
   padding: 0 var(--espacio-s);
 
+  color: var(--azul-noche);
   font-family: var(--fuente-titulos);
   font-weight: 700;
 }
 
-/* Etiquetas */
+/* Etiquetas de los campos */
 
 label {
   display: block;
   margin-bottom: 0.25rem;
+  color: var(--azul-noche);
   font-weight: 600;
 }
 
-/* Etiquetas de radios y casillas */
-
-input[type="radio"] + label,
-input[type="checkbox"] + label {
-  display: inline;
-  font-weight: 400;
-}
-
-/* Campos de entrada */
+/* Campos de texto y selección */
 
 input[type="text"],
 input[type="email"],
@@ -423,6 +541,7 @@ textarea {
   display: block;
   width: 100%;
   min-height: 2.75rem;
+  margin-bottom: var(--espacio-m);
   padding: var(--espacio-s);
 
   color: var(--azul-noche);
@@ -430,37 +549,85 @@ textarea {
 
   font-family: var(--fuente-texto);
   font-size: 1rem;
+  line-height: 1.5;
 
   border: 2px solid var(--gris-asfalto);
   border-radius: 0.25rem;
 }
 
-/* Área de comentarios */
+/* Evita un espacio extra en el último campo de cada grupo */
+
+fieldset > input:last-child,
+fieldset > select:last-child,
+fieldset > textarea:last-child {
+  margin-bottom: 0;
+}
+
+/* Comentarios */
 
 textarea {
   min-height: 7rem;
   resize: vertical;
 }
 
-/* Controles de selección */
+/* Radios y casillas de verificación */
 
 input[type="radio"],
 input[type="checkbox"] {
   width: 1rem;
   height: 1rem;
+  margin-right: 0.35rem;
+
   accent-color: var(--verde-ruta);
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Las etiquetas de radios y casillas se muestran junto al control */
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  display: inline;
+  margin-bottom: 0;
+  font-weight: 400;
   cursor: pointer;
 }
 
-/* Separación entre los campos del formulario */
+/* Espaciado para párrafos que contienen controles */
 
 form p {
   margin-bottom: var(--espacio-l);
 }
 
+/* Resaltar el campo activo */
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--verde-ruta);
+}
+
+/* Indicar visualmente los campos inválidos después de interactuar */
+
+input:focus:invalid,
+select:focus:invalid,
+textarea:focus:invalid {
+  border-color: #B42318;
+}
+
+/* Mensajes de ayuda */
+
+.ayuda-campo {
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: var(--espacio-m);
+  color: var(--gris-asfalto);
+  font-size: 0.9rem;
+}
+
 
 /* ==================================================
-   13. BOTONES
+   14. BOTONES Y LLAMADAS A LA ACCIÓN
    ================================================== */
 
 .boton,
@@ -474,44 +641,38 @@ button {
   font-family: var(--fuente-texto);
   font-size: 1rem;
   font-weight: 600;
+  line-height: 1.4;
   text-align: center;
   text-decoration: none;
 
-  border: 2px solid transparent;
+  border: 2px solid var(--verde-ruta);
   border-radius: var(--radio-borde);
 
   cursor: pointer;
 
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    border-color 0.2s ease;
 }
 
 .boton:hover,
 button:hover {
   color: var(--blanco);
   background-color: var(--azul-noche);
+  border-color: var(--azul-noche);
 }
 
+.boton:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--naranja-pedal);
+  outline-offset: 3px;
+}
 
-/* ==================================================
-   14. ETIQUETAS POSICIONADAS
-   Se aplican cuando un elemento utiliza class="etiqueta"
-   ================================================== */
+/* Evitar que los botones largos se salgan de la pantalla */
 
-.etiqueta {
-  position: absolute;
-  top: var(--espacio-s);
-  right: var(--espacio-s);
-
-  padding: 0.25rem var(--espacio-m);
-
-  color: var(--azul-noche);
-  background-color: var(--naranja-pedal);
-
-  font-weight: 700;
-
-  border-radius: 1rem;
+.boton {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 
@@ -526,13 +687,16 @@ button:hover {
   z-index: 10;
 
   display: inline-block;
+  max-width: calc(100vw - 2rem);
   padding: var(--espacio-s) var(--espacio-m);
 
   color: var(--blanco);
   background-color: var(--verde-ruta);
 
   font-weight: 700;
+  text-align: center;
   text-decoration: none;
+  overflow-wrap: anywhere;
 
   border: 2px solid var(--blanco);
   border-radius: 2rem;
@@ -546,9 +710,8 @@ button:hover {
 }
 
 .whatsapp:focus-visible {
-  outline: 3px solid var(--azul-noche);
+  outline: 3px solid var(--naranja-pedal);
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px var(--blanco);
 }
 
 
@@ -556,13 +719,17 @@ button:hover {
    16. DISEÑO ADAPTABLE PARA CELULARES
    ================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 40rem) {
   :root {
     --espacio-xl: 1.75rem;
   }
 
   header,
   footer {
+    padding: var(--espacio-l) var(--espacio-m);
+  }
+
+  main {
     padding: var(--espacio-l) var(--espacio-m);
   }
 
@@ -574,12 +741,12 @@ button:hover {
     font-size: 0.9rem;
   }
 
-  main {
-    padding: var(--espacio-l) var(--espacio-m);
+  .tarjeta {
+    padding: var(--espacio-m);
   }
 
   table {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
 
   th,
