@@ -92,20 +92,20 @@
        CONTENIDO PRINCIPAL
        ================================================== -->
 
-  <main>
+  <main class="mx-auto w-full max-w-5xl px-4 py-7 sm:px-6 sm:py-10">
 
     <!-- FORMULARIO DE RESERVA -->
 
-    <section id="formulario-reserva">
+    <section class="mb-10 last:mb-0" id="formulario-reserva">
 
-      <h2>Formulario de reserva</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">Formulario de reserva</h2>
 
-      <p>
+      <p class="mb-4">
         Los campos marcados como obligatorios deben completarse
         antes de enviar el formulario.
       </p>
 
-      <p>
+      <p class="mb-4">
         ¿Tienes dudas sobre los precios?
         Consulta nuestras
         <a href="tarifas.html#tarifas-alquiler">
@@ -122,22 +122,21 @@
         action="#" no envía los datos a un sistema de reservas real.
       -->
 
-      <form action="#" method="post">
+      <form class="w-full" action="#" method="post">
 
         <!-- ==============================================
              GRUPO 1: DATOS PERSONALES
              ============================================== -->
 
-        <fieldset>
+        <fieldset class="mb-6 min-w-0 rounded-lg border-2 border-asfalto p-4 sm:p-6">
 
-          <legend>Tus datos</legend>
+          <legend class="px-2 font-titulo font-bold">Tus datos</legend>
 
-          <label for="nombre">
+          <label class="mb-1 block font-semibold" for="nombre">
             Nombre completo *
           </label>
 
-          <input
-            type="text"
+          <input class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal invalid:focus:border-red-700" type="text"
             id="nombre"
             name="nombre"
             autocomplete="name"
@@ -149,12 +148,11 @@
           >
 
 
-          <label for="documento">
+          <label class="mb-1 block font-semibold" for="documento">
             Documento de identidad *
           </label>
 
-          <input
-            type="text"
+          <input class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal invalid:focus:border-red-700" type="text"
             id="documento"
             name="documento"
             inputmode="numeric"
@@ -168,12 +166,11 @@
           >
 
 
-          <label for="correo">
+          <label class="mb-1 block font-semibold" for="correo">
             Correo electrónico *
           </label>
 
-          <input
-            type="email"
+          <input class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal invalid:focus:border-red-700" type="email"
             id="correo"
             name="correo"
             autocomplete="email"
@@ -184,12 +181,11 @@
           >
 
 
-          <label for="telefono">
+          <label class="mb-1 block font-semibold" for="telefono">
             Número de celular *
           </label>
 
-          <input
-            type="tel"
+          <input class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal invalid:focus:border-red-700" type="tel"
             id="telefono"
             name="telefono"
             inputmode="numeric"
@@ -209,16 +205,15 @@
              GRUPO 2: DATOS DEL ALQUILER
              ============================================== -->
 
-        <fieldset>
+        <fieldset class="mb-6 min-w-0 rounded-lg border-2 border-asfalto p-4 sm:p-6">
 
-          <legend>Tu alquiler</legend>
+          <legend class="px-2 font-titulo font-bold">Tu alquiler</legend>
 
-          <label for="fecha">
+          <label class="mb-1 block font-semibold" for="fecha">
             Fecha de la reserva *
           </label>
 
-          <input
-            type="date"
+          <input class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal invalid:focus:border-red-700" type="date"
             id="fecha"
             name="fecha"
             min="2026-11-01"
@@ -228,56 +223,53 @@
           >
 
 
-          <fieldset>
+          <fieldset class="mb-6 min-w-0 rounded-lg border-2 border-asfalto p-4 sm:p-6">
 
-            <legend>Tipo de bicicleta *</legend>
+            <legend class="px-2 font-titulo font-bold">Tipo de bicicleta *</legend>
 
-            <input
-              type="radio"
+            <input class="mr-1 h-4 w-4 accent-ruta align-middle" type="radio"
               id="bicicleta-urbana"
               name="tipo-bicicleta"
               value="urbana"
               required
             >
 
-            <label for="bicicleta-urbana">
+            <label class="inline cursor-pointer font-normal" for="bicicleta-urbana">
               Urbana
             </label>
 
             <br>
 
-            <input
-              type="radio"
+            <input class="mr-1 h-4 w-4 accent-ruta align-middle" type="radio"
               id="bicicleta-montana"
               name="tipo-bicicleta"
               value="montana"
             >
 
-            <label for="bicicleta-montana">
+            <label class="inline cursor-pointer font-normal" for="bicicleta-montana">
               Montaña
             </label>
 
             <br>
 
-            <input
-              type="radio"
+            <input class="mr-1 h-4 w-4 accent-ruta align-middle" type="radio"
               id="bicicleta-electrica"
               name="tipo-bicicleta"
               value="electrica"
             >
 
-            <label for="bicicleta-electrica">
+            <label class="inline cursor-pointer font-normal" for="bicicleta-electrica">
               Eléctrica
             </label>
 
           </fieldset>
 
 
-          <label for="plan">
+          <label class="mb-1 block font-semibold" for="plan">
             Plan de alquiler *
           </label>
 
-          <select
+          <select class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
             id="plan"
             name="plan"
             required
@@ -302,12 +294,11 @@
           </select>
 
 
-          <label for="cantidad">
+          <label class="mb-1 block font-semibold" for="cantidad">
             Cantidad de bicicletas *
           </label>
 
-          <input
-            type="number"
+          <input class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal invalid:focus:border-red-700" type="number"
             id="cantidad"
             name="cantidad"
             min="1"
@@ -319,11 +310,11 @@
           >
 
 
-          <label for="recorrido">
+          <label class="mb-1 block font-semibold" for="recorrido">
             ¿Deseas realizar un recorrido guiado?
           </label>
 
-          <select
+          <select class="mb-4 block min-h-11 w-full rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
             id="recorrido"
             name="recorrido"
           >
@@ -353,15 +344,15 @@
              GRUPO 3: CONFIRMACIÓN
              ============================================== -->
 
-        <fieldset>
+        <fieldset class="mb-6 min-w-0 rounded-lg border-2 border-asfalto p-4 sm:p-6">
 
-          <legend>Confirmación</legend>
+          <legend class="px-2 font-titulo font-bold">Confirmación</legend>
 
-          <label for="comentarios">
+          <label class="mb-1 block font-semibold" for="comentarios">
             Comentarios adicionales
           </label>
 
-          <textarea
+          <textarea class="mb-4 block min-h-28 w-full resize-y rounded border-2 border-asfalto bg-white p-2 text-noche focus:border-ruta focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
             id="comentarios"
             name="comentarios"
             rows="4"
@@ -371,24 +362,23 @@
           ></textarea>
 
 
-          <input
-            type="checkbox"
+          <input class="mr-1 h-4 w-4 accent-ruta align-middle" type="checkbox"
             id="politicas"
             name="politicas"
             value="aceptadas"
             required
           >
 
-          <label for="politicas">
+          <label class="inline cursor-pointer font-normal" for="politicas">
             Confirmo que he revisado los datos de mi solicitud y acepto
             las condiciones del alquiler. *
           </label>
 
-          <p>
+          <p class="mb-4">
             Revisa todos los datos antes de enviar tu solicitud.
           </p>
 
-          <button type="submit">
+          <button class="inline-block max-w-full cursor-pointer rounded-lg border-2 border-ruta bg-ruta px-6 py-4 text-center font-semibold text-white transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" type="submit">
             Enviar solicitud de reserva
           </button>
 
@@ -401,11 +391,11 @@
 
     <!-- HORARIO DE ATENCIÓN -->
 
-    <aside id="horario-atencion">
+    <aside class="my-10 rounded-r-lg border-l-4 border-pedal bg-white p-5 sm:p-6" id="horario-atencion">
 
-      <h2>Horario de atención</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">Horario de atención</h2>
 
-      <p>
+      <p class="mb-4">
         Consulta nuestros horarios antes de planificar tu visita.
       </p>
 
@@ -424,25 +414,25 @@
 
     <!-- INFORMACIÓN COMPLEMENTARIA -->
 
-    <section id="ayuda-reserva">
+    <section class="mb-10 last:mb-0" id="ayuda-reserva">
 
-      <h2>¿Necesitas consultar los precios?</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">¿Necesitas consultar los precios?</h2>
 
-      <p>
+      <p class="mb-4">
         Antes de enviar tu solicitud, puedes revisar las tarifas
         de las bicicletas y los precios de los recorridos guiados.
       </p>
 
-      <p>
+      <p class="mb-4">
         <a
-          class="boton"
+          class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
           href="tarifas.html"
         >
           Consultar tarifas y rutas
         </a>
       </p>
 
-      <p>
+      <p class="mb-4">
         <a href="../index.html">
           Volver a la página de inicio
         </a>
