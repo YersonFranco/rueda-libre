@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="scroll-smooth motion-reduce:scroll-auto" lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -31,10 +31,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Hoja de estilos compartida -->
-  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body>
+<body class="m-0 bg-crema font-texto text-noche leading-relaxed">
 
   <!-- ==================================================
        ENCABEZADO Y NAVEGACIÓN
@@ -54,13 +53,13 @@
       <ul id="menu" class="m-0 flex list-none flex-wrap items-center justify-center gap-x-4 gap-y-2 p-0 sm:gap-x-6">
 
         <li>
-          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="../index.html">
+          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white !no-underline hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="../index.html">
             Inicio
           </a>
         </li>
 
         <li>
-          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="tarifas.html">
+          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white !no-underline hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="tarifas.html">
             Tarifas y rutas
           </a>
         </li>
@@ -68,7 +67,7 @@
         <li>
           <a
             href="reservas.html"
-            class="!border-b-[3px] !border-pedal !py-2 !font-semibold !text-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
+            class="!border-b-[3px] !border-pedal !py-2 !font-semibold !text-pedal !no-underline hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
             aria-current="page"
           >
             Reservas
@@ -108,11 +107,11 @@
       <p class="mb-4">
         ¿Tienes dudas sobre los precios?
         Consulta nuestras
-        <a href="tarifas.html#tarifas-alquiler">
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="tarifas.html#tarifas-alquiler">
           tarifas de alquiler
         </a>
         y nuestros
-        <a href="tarifas.html#recorridos">
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="tarifas.html#recorridos">
           recorridos guiados
         </a>.
       </p>
@@ -378,7 +377,7 @@
             Revisa todos los datos antes de enviar tu solicitud.
           </p>
 
-          <button class="inline-block max-w-full cursor-pointer rounded-lg border-2 border-ruta bg-ruta px-6 py-4 text-center font-semibold text-white transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" type="submit">
+          <button class="inline-block max-w-full cursor-pointer rounded-lg border-2 border-ruta bg-ruta px-6 py-4 text-center font-semibold text-white transition-colors motion-reduce:transition-none hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" type="submit">
             Enviar solicitud de reserva
           </button>
 
@@ -399,13 +398,13 @@
         Consulta nuestros horarios antes de planificar tu visita.
       </p>
 
-      <dl>
+      <dl class="space-y-1">
 
-        <dt>Lunes a viernes</dt>
-        <dd>7:00 a. m. a 7:00 p. m.</dd>
+        <dt class="mt-4 font-semibold first:mt-0">Lunes a viernes</dt>
+        <dd class="ml-4 mb-2">7:00 a. m. a 7:00 p. m.</dd>
 
-        <dt>Sábados, domingos y festivos</dt>
-        <dd>6:00 a. m. a 2:00 p. m.</dd>
+        <dt class="mt-4 font-semibold first:mt-0">Sábados, domingos y festivos</dt>
+        <dd class="ml-4 mb-2">6:00 a. m. a 2:00 p. m.</dd>
 
       </dl>
 
@@ -425,7 +424,7 @@
 
       <p class="mb-4">
         <a
-          class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
+          class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors motion-reduce:transition-none hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
           href="tarifas.html"
         >
           Consultar tarifas y rutas
@@ -433,7 +432,7 @@
       </p>
 
       <p class="mb-4">
-        <a href="../index.html">
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="../index.html">
           Volver a la página de inicio
         </a>
       </p>
@@ -447,20 +446,20 @@
        PIE DE PÁGINA
        ================================================== -->
 
-  <footer>
+  <footer class="mt-10 bg-noche px-4 py-6 pb-24 text-center text-white sm:px-6">
 
-    <p>
-      <strong>Rueda Libre</strong> | Alquiler de bicicletas en Medellín
+    <p class="mb-4">
+      <strong class="font-bold">Rueda Libre</strong> | Alquiler de bicicletas en Medellín
     </p>
 
-    <p>
+    <p class="mb-4">
       Correo:
-      <a href="mailto:hola@ruedalibre.example">
+      <a class="text-white underline underline-offset-4 hover:text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="mailto:hola@ruedalibre.example">
         hola@ruedalibre.example
       </a>
     </p>
 
-    <p>
+    <p class="mb-0">
       &copy; 2026 Rueda Libre. Todos los derechos reservados.
     </p>
 
@@ -472,7 +471,7 @@
        ================================================== -->
 
   <a
-    class="whatsapp"
+    class="fixed right-4 bottom-4 z-10 max-w-[calc(100vw-2rem)] break-words rounded-full border-2 border-white bg-ruta px-4 py-2 text-center font-bold text-white no-underline shadow-lg hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:right-6 sm:bottom-6"
     href="https://wa.me/573000000000"
     target="_blank"
     rel="noopener noreferrer"

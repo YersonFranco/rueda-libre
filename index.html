@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="scroll-smooth motion-reduce:scroll-auto" lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -31,10 +31,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Hoja de estilos principal -->
-  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="m-0 bg-crema font-texto text-noche leading-relaxed">
 
   <!-- ==================================================
        ENCABEZADO Y NAVEGACIÓN PRINCIPAL
@@ -56,7 +55,7 @@
         <li>
           <a
             href="index.html"
-            class="!border-b-[3px] !border-pedal !py-2 !font-semibold !text-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
+            class="!border-b-[3px] !border-pedal !py-2 !font-semibold !text-pedal !no-underline hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
             aria-current="page"
           >
             Inicio
@@ -64,13 +63,13 @@
         </li>
 
         <li>
-          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="paginas/tarifas.html">
+          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white !no-underline hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="paginas/tarifas.html">
             Tarifas y rutas
           </a>
         </li>
 
         <li>
-          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="paginas/reservas.html">
+          <a class="!border-b-[3px] !border-transparent !py-2 !font-semibold !text-white !no-underline hover:!border-pedal hover:!text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="paginas/reservas.html">
             Reservas
           </a>
         </li>
@@ -109,7 +108,7 @@
       >
 
       <p class="mb-4">
-        En <strong>Rueda Libre</strong> creemos que la bicicleta es una
+        En <strong class="font-bold">Rueda Libre</strong> creemos que la bicicleta es una
         excelente forma de descubrir Medellín, cuidar el medio ambiente
         y disfrutar cada recorrido.
       </p>
@@ -118,13 +117,13 @@
         Tenemos alternativas para principiantes, amantes de la montaña
         y personas que buscan nuevas experiencias sobre dos ruedas.
         Queremos que disfrutes una experiencia
-        <em>segura, cómoda y memorable</em>.
+        <em class="italic">segura, cómoda y memorable</em>.
       </p>
 
       <p class="mb-4">
         Explora nuestras opciones y encuentra la bicicleta ideal para ti.
         También puedes consultar nuestras
-        <a href="paginas/tarifas.html#recorridos">
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="paginas/tarifas.html#recorridos">
           tarifas y recorridos guiados
         </a>.
       </p>
@@ -194,11 +193,11 @@
           </p>
 
           <p class="mb-4">
-            <strong>Ideal para:</strong> paseos urbanos y recorridos
+            <strong class="font-bold">Ideal para:</strong> paseos urbanos y recorridos
             tranquilos.
           </p>
 
-          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors motion-reduce:transition-none hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#tarifas-alquiler"
           >
             Consultar tarifas
@@ -227,11 +226,11 @@
           </p>
 
           <p class="mb-4">
-            <strong>Ideal para:</strong> amantes de la naturaleza y
+            <strong class="font-bold">Ideal para:</strong> amantes de la naturaleza y
             de los recorridos exigentes.
           </p>
 
-          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors motion-reduce:transition-none hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#tarifas-alquiler"
           >
             Consultar tarifas
@@ -262,11 +261,11 @@
           </p>
 
           <p class="mb-4">
-            <strong>Ideal para:</strong> explorar la ciudad con ayuda
+            <strong class="font-bold">Ideal para:</strong> explorar la ciudad con ayuda
             de la asistencia eléctrica.
           </p>
 
-          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors motion-reduce:transition-none hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#tarifas-alquiler"
           >
             Consultar tarifas
@@ -295,11 +294,11 @@
           </p>
 
           <p class="mb-4">
-            <strong>Ideal para:</strong> quienes desean conocer nuevos
+            <strong class="font-bold">Ideal para:</strong> quienes desean conocer nuevos
             lugares y disfrutar una experiencia acompañada.
           </p>
 
-          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors motion-reduce:transition-none hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#recorridos"
           >
             Ver recorridos
@@ -328,7 +327,7 @@
           </p>
 
           <p class="mb-4">
-            <strong>Ideal para:</strong> ciclistas que quieren conocer
+            <strong class="font-bold">Ideal para:</strong> ciclistas que quieren conocer
             mejor su bicicleta y sus cuidados.
           </p>
 
@@ -352,24 +351,24 @@
       <ol class="mb-6 list-decimal space-y-3 pl-6">
 
         <li>
-          <strong>Elige tu bicicleta:</strong>
+          <strong class="font-bold">Elige tu bicicleta:</strong>
           consulta las opciones disponibles según el recorrido que
           quieras realizar.
         </li>
 
         <li>
-          <strong>Consulta las tarifas:</strong>
+          <strong class="font-bold">Consulta las tarifas:</strong>
           revisa los precios por hora, medio día o día completo.
         </li>
 
         <li>
-          <strong>Completa tu reserva:</strong>
+          <strong class="font-bold">Completa tu reserva:</strong>
           ingresa tus datos, selecciona la bicicleta y elige el plan
           que prefieras.
         </li>
 
         <li>
-          <strong>Prepárate para disfrutar:</strong>
+          <strong class="font-bold">Prepárate para disfrutar:</strong>
           revisa las indicaciones de tu reserva y alista todo lo
           necesario para tu recorrido.
         </li>
@@ -380,7 +379,7 @@
         ¿Listo para comenzar tu aventura?
       </p>
 
-      <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
+      <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors motion-reduce:transition-none hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
         href="paginas/reservas.html"
       >
         Reservar ahora
@@ -398,18 +397,18 @@
       <ul class="mb-6 list-disc space-y-2 pl-6">
 
         <li>
-          <strong>Movilidad sostenible:</strong>
+          <strong class="font-bold">Movilidad sostenible:</strong>
           disfruta de una alternativa que favorece el cuidado del medio
           ambiente.
         </li>
 
         <li>
-          <strong>Opciones para diferentes planes:</strong>
+          <strong class="font-bold">Opciones para diferentes planes:</strong>
           elige entre bicicletas urbanas, de montaña y eléctricas.
         </li>
 
         <li>
-          <strong>Experiencias al aire libre:</strong>
+          <strong class="font-bold">Experiencias al aire libre:</strong>
           conoce Medellín y sus alrededores de una manera diferente.
         </li>
 
@@ -430,12 +429,12 @@
       </p>
 
       <p class="mb-4">
-        <strong>Ubicación:</strong>
+        <strong class="font-bold">Ubicación:</strong>
         Medellín, Antioquia, Colombia.
       </p>
 
       <p class="mb-4">
-        <a
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal"
           href="https://www.google.com/maps/search/?api=1&query=Medellin%2C%20Antioquia%2C%20Colombia"
           target="_blank"
           rel="noopener noreferrer"
@@ -445,19 +444,19 @@
       </p>
 
       <p class="mb-4">
-        <strong>Correo electrónico:</strong>
-        <a href="mailto:hola@ruedalibre.example">
+        <strong class="font-bold">Correo electrónico:</strong>
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="mailto:hola@ruedalibre.example">
           hola@ruedalibre.example
         </a>
       </p>
 
       <p class="mb-4">
         También puedes consultar nuestros
-        <a href="paginas/tarifas.html">
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="paginas/tarifas.html">
           precios de alquiler y recorridos
         </a>
         o completar el
-        <a href="paginas/reservas.html">
+        <a class="text-ruta underline underline-offset-4 hover:text-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="paginas/reservas.html">
           formulario de reserva
         </a>.
       </p>
@@ -471,20 +470,20 @@
        PIE DE PÁGINA
        ================================================== -->
 
-  <footer>
+  <footer class="mt-10 bg-noche px-4 py-6 pb-24 text-center text-white sm:px-6">
 
-    <p>
-      <strong>Rueda Libre</strong> | Alquiler de bicicletas en Medellín
+    <p class="mb-4">
+      <strong class="font-bold">Rueda Libre</strong> | Alquiler de bicicletas en Medellín
     </p>
 
-    <p>
+    <p class="mb-4">
       Correo:
-      <a href="mailto:hola@ruedalibre.example">
+      <a class="text-white underline underline-offset-4 hover:text-pedal focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal" href="mailto:hola@ruedalibre.example">
         hola@ruedalibre.example
       </a>
     </p>
 
-    <p>
+    <p class="mb-0">
       &copy; 2026 Rueda Libre. Todos los derechos reservados.
     </p>
 
@@ -496,7 +495,7 @@
        ================================================== -->
 
   <a
-    class="whatsapp"
+    class="fixed right-4 bottom-4 z-10 max-w-[calc(100vw-2rem)] break-words rounded-full border-2 border-white bg-ruta px-4 py-2 text-center font-bold text-white no-underline shadow-lg hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:right-6 sm:bottom-6"
     href="https://wa.me/573000000000"
     target="_blank"
     rel="noopener noreferrer"
