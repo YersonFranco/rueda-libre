@@ -92,36 +92,36 @@
        CONTENIDO PRINCIPAL
        ================================================== -->
 
-  <main>
+  <main class="mx-auto w-full max-w-5xl px-4 py-7 sm:px-6 sm:py-10">
 
     <!-- PRESENTACIÓN -->
 
-    <section id="bienvenida">
+    <section class="mb-10 last:mb-0" id="bienvenida">
 
-      <h2>¡Bienvenido a Rueda Libre!</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">¡Bienvenido a Rueda Libre!</h2>
 
       <img
-        class="imagen-portada"
+        class="mb-6 max-h-[32rem] w-full rounded-lg object-cover"
         src="img/portada.jpg"
         alt="Paisaje de Medellín para disfrutar de un recorrido en bicicleta"
         width="1200"
         height="600"
       >
 
-      <p>
+      <p class="mb-4">
         En <strong>Rueda Libre</strong> creemos que la bicicleta es una
         excelente forma de descubrir Medellín, cuidar el medio ambiente
         y disfrutar cada recorrido.
       </p>
 
-      <p>
+      <p class="mb-4">
         Tenemos alternativas para principiantes, amantes de la montaña
         y personas que buscan nuevas experiencias sobre dos ruedas.
         Queremos que disfrutes una experiencia
         <em>segura, cómoda y memorable</em>.
       </p>
 
-      <p>
+      <p class="mb-4">
         Explora nuestras opciones y encuentra la bicicleta ideal para ti.
         También puedes consultar nuestras
         <a href="paginas/tarifas.html#recorridos">
@@ -134,23 +134,24 @@
 
     <!-- QUIÉNES SOMOS -->
 
-    <section id="quienes-somos">
+    <section class="mb-10 last:mb-0" id="quienes-somos">
 
-      <h2>¿Quiénes somos?</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">¿Quiénes somos?</h2>
 
-      <p>
+      <p class="mb-4">
         Somos un emprendimiento de alquiler de bicicletas en Medellín.
         Nos apasiona conectar a las personas con la ciudad y la naturaleza
         a través de una movilidad más sostenible.
       </p>
 
-      <p>
+      <p class="mb-4">
         Queremos que cada persona encuentre una opción adecuada para
         explorar nuevos lugares, compartir con amigos o disfrutar de
         una actividad al aire libre.
       </p>
 
       <img
+        class="mb-4 w-full max-w-full rounded"
         src="img/bicicleta.jpg"
         alt="Bicicleta disponible para disfrutar de Medellín sobre ruedas"
         width="800"
@@ -162,42 +163,42 @@
 
     <!-- NUESTROS SERVICIOS -->
 
-    <section id="servicios">
+    <section class="mb-10 last:mb-0" id="servicios">
 
-      <h2>Nuestros servicios</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">Nuestros servicios</h2>
 
-      <p>
+      <p class="mb-4">
         Conoce nuestras opciones y elige la experiencia que mejor se adapte
         a tus planes.
       </p>
 
-      <div class="servicios-grid">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 
         <!-- SERVICIO 1: BICICLETAS URBANAS -->
 
-        <article class="tarjeta">
+        <article class="relative rounded-lg border border-asfalto bg-white p-4 sm:p-6">
 
           <img
+            class="mb-4 w-full max-w-full rounded"
             src="img/bici-urbana.jpg"
             alt="Bicicleta urbana de paseo estacionada en una ciclorruta de Medellín"
             width="600"
             height="400"
           >
 
-          <h3>Alquiler de bicicletas urbanas</h3>
+          <h3 class="mt-6 mb-3 font-titulo text-xl leading-snug">Alquiler de bicicletas urbanas</h3>
 
-          <p>
+          <p class="mb-4">
             Recorre la ciudad, visita sus espacios públicos y disfruta
             de una alternativa práctica para movilizarte.
           </p>
 
-          <p>
+          <p class="mb-4">
             <strong>Ideal para:</strong> paseos urbanos y recorridos
             tranquilos.
           </p>
 
-          <a
-            class="boton"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#tarifas-alquiler"
           >
             Consultar tarifas
@@ -208,29 +209,29 @@
 
         <!-- SERVICIO 2: BICICLETAS DE MONTAÑA -->
 
-        <article class="tarjeta">
+        <article class="relative rounded-lg border border-asfalto bg-white p-4 sm:p-6">
 
           <img
+            class="mb-4 w-full max-w-full rounded"
             src="img/bici-montana.jpg"
             alt="Ciclista recorriendo un sendero de montaña rodeado de vegetación"
             width="600"
             height="400"
           >
 
-          <h3>Bicicletas de montaña</h3>
+          <h3 class="mt-6 mb-3 font-titulo text-xl leading-snug">Bicicletas de montaña</h3>
 
-          <p>
+          <p class="mb-4">
             Atrévete a explorar caminos, senderos y paisajes naturales
             con una bicicleta preparada para tus aventuras.
           </p>
 
-          <p>
+          <p class="mb-4">
             <strong>Ideal para:</strong> amantes de la naturaleza y
             de los recorridos exigentes.
           </p>
 
-          <a
-            class="boton"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#tarifas-alquiler"
           >
             Consultar tarifas
@@ -241,31 +242,31 @@
 
         <!-- SERVICIO 3: BICICLETAS ELÉCTRICAS -->
 
-        <article class="tarjeta">
+        <article class="relative rounded-lg border border-asfalto bg-white p-4 sm:p-6">
 
-          <span class="etiqueta">Nuevo</span>
+          <span class="absolute top-2 right-2 z-10 rounded-full bg-pedal px-4 py-1 text-sm font-bold text-noche">Nuevo</span>
 
           <img
+            class="mb-4 w-full max-w-full rounded"
             src="img/bici-electrica.jpg"
             alt="Detalle del motor central y batería de una bicicleta eléctrica"
             width="600"
             height="400"
           >
 
-          <h3>Bicicletas eléctricas</h3>
+          <h3 class="mt-6 mb-3 font-titulo text-xl leading-snug">Bicicletas eléctricas</h3>
 
-          <p>
+          <p class="mb-4">
             Disfruta de una asistencia adicional al pedalear y recorre
             mayores distancias con comodidad.
           </p>
 
-          <p>
+          <p class="mb-4">
             <strong>Ideal para:</strong> explorar la ciudad con ayuda
             de la asistencia eléctrica.
           </p>
 
-          <a
-            class="boton"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#tarifas-alquiler"
           >
             Consultar tarifas
@@ -276,29 +277,29 @@
 
         <!-- SERVICIO 4: RECORRIDOS GUIADOS -->
 
-        <article class="tarjeta">
+        <article class="relative rounded-lg border border-asfalto bg-white p-4 sm:p-6">
 
           <img
+            class="mb-4 w-full max-w-full rounded"
             src="img/recorrido-guiado.jpg"
             alt="Grupo de personas realizando un recorrido guiado en bicicleta por un parque urbano"
             width="600"
             height="400"
           >
 
-          <h3>Recorridos guiados</h3>
+          <h3 class="mt-6 mb-3 font-titulo text-xl leading-snug">Recorridos guiados</h3>
 
-          <p>
+          <p class="mb-4">
             Descubre lugares interesantes de Medellín mediante recorridos
             organizados para conocer la ciudad de una forma diferente.
           </p>
 
-          <p>
+          <p class="mb-4">
             <strong>Ideal para:</strong> quienes desean conocer nuevos
             lugares y disfrutar una experiencia acompañada.
           </p>
 
-          <a
-            class="boton"
+          <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
             href="paginas/tarifas.html#recorridos"
           >
             Ver recorridos
@@ -309,23 +310,24 @@
 
         <!-- SERVICIO 5: TALLER BÁSICO -->
 
-        <article class="tarjeta">
+        <article class="relative rounded-lg border border-asfalto bg-white p-4 sm:p-6">
 
           <img
+            class="mb-4 w-full max-w-full rounded"
             src="img/taller-bicicletas.jpg"
             alt="Manos de un mecánico ajustando los cambios y la cadena de una bicicleta en el taller"
             width="600"
             height="400"
           >
 
-          <h3>Taller básico de bicicletas</h3>
+          <h3 class="mt-6 mb-3 font-titulo text-xl leading-snug">Taller básico de bicicletas</h3>
 
-          <p>
+          <p class="mb-4">
             Aprende sobre el cuidado básico de tu bicicleta y conoce
             recomendaciones para prepararla antes de salir a rodar.
           </p>
 
-          <p>
+          <p class="mb-4">
             <strong>Ideal para:</strong> ciclistas que quieren conocer
             mejor su bicicleta y sus cuidados.
           </p>
@@ -339,15 +341,15 @@
 
     <!-- CÓMO ALQUILAR -->
 
-    <section id="como-alquilar">
+    <section class="mb-10 last:mb-0" id="como-alquilar">
 
-      <h2>¿Cómo alquilar?</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">¿Cómo alquilar?</h2>
 
-      <p>
+      <p class="mb-4">
         Reservar tu bicicleta es sencillo. Sigue estos cuatro pasos:
       </p>
 
-      <ol>
+      <ol class="mb-6 list-decimal space-y-3 pl-6">
 
         <li>
           <strong>Elige tu bicicleta:</strong>
@@ -374,12 +376,11 @@
 
       </ol>
 
-      <p>
+      <p class="mb-4">
         ¿Listo para comenzar tu aventura?
       </p>
 
-      <a
-        class="boton"
+      <a class="inline-block max-w-full break-words rounded-lg border-2 border-ruta bg-ruta px-6 py-3 text-center font-semibold text-white no-underline transition-colors hover:border-noche hover:bg-noche focus-visible:outline focus-visible:outline-4 focus-visible:outline-pedal sm:py-4"
         href="paginas/reservas.html"
       >
         Reservar ahora
@@ -390,11 +391,11 @@
 
     <!-- BENEFICIOS -->
 
-    <section id="beneficios">
+    <section class="mb-10 last:mb-0" id="beneficios">
 
-      <h2>¿Por qué elegir Rueda Libre?</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">¿Por qué elegir Rueda Libre?</h2>
 
-      <ul>
+      <ul class="mb-6 list-disc space-y-2 pl-6">
 
         <li>
           <strong>Movilidad sostenible:</strong>
@@ -419,21 +420,21 @@
 
     <!-- ENCUÉNTRANOS -->
 
-    <section id="encuentranos">
+    <section class="mb-10 last:mb-0" id="encuentranos">
 
-      <h2>Encuéntranos</h2>
+      <h2 class="mb-6 border-b-[3px] border-ruta pb-2 font-titulo text-2xl leading-tight sm:text-3xl">Encuéntranos</h2>
 
-      <p>
+      <p class="mb-4">
         ¿Quieres conocer nuestra ubicación o resolver alguna duda?
         Consulta el mapa o escríbenos por correo electrónico.
       </p>
 
-      <p>
+      <p class="mb-4">
         <strong>Ubicación:</strong>
         Medellín, Antioquia, Colombia.
       </p>
 
-      <p>
+      <p class="mb-4">
         <a
           href="https://www.google.com/maps/search/?api=1&query=Medellin%2C%20Antioquia%2C%20Colombia"
           target="_blank"
@@ -443,14 +444,14 @@
         </a>
       </p>
 
-      <p>
+      <p class="mb-4">
         <strong>Correo electrónico:</strong>
         <a href="mailto:hola@ruedalibre.example">
           hola@ruedalibre.example
         </a>
       </p>
 
-      <p>
+      <p class="mb-4">
         También puedes consultar nuestros
         <a href="paginas/tarifas.html">
           precios de alquiler y recorridos
