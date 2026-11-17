@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Identidad visual compartida de Rueda Libre (Tailwind CSS 4). */
+@theme {
+  --color-ruta: #1E7A4F;
+  --color-pedal: #F39A2B;
+  --color-noche: #14213D;
+  --color-crema: #FAF6EF;
+  --color-asfalto: #5B6470;
+
+  --font-titulo: "Montserrat", Arial, sans-serif;
+  --font-texto: "Open Sans", Arial, sans-serif;
+}

@@ -240,3 +240,50 @@ Fecha de cierre: 28 de octubre de 2026.
 Nota: el formulario usa action=“#” y no guarda reservas en un servidor.
 Las mediciones específicas de DevTools y los resultados individuales de
 pruebas deben añadirse únicamente si se han registrado realmente.
+==================================================
+ENTREGABLE TAILWIND CSS 4 — ADAPTACIÓN DEL PROYECTO
+==================================================
+
+Objetivo
+- Adaptar las tres páginas existentes de Rueda Libre a Tailwind CSS 4.
+- Sustituir Play CDN por compilación local con Tailwind CLI.
+- Mantener HTML semántico, rutas relativas, identidad visual y enfoque mobile-first.
+
+Cambios realizados
+- Se retiró la configuración JavaScript de Tailwind CDN de las tres páginas.
+- Se centralizaron colores y fuentes de marca en src/input.css mediante @theme.
+- Se configuró package.json con comandos dev (watch) y build (minify), y dependencias de Tailwind CSS 4 y su CLI.
+- Se enlazó css/output.css desde la raíz y desde paginas/ con rutas relativas correctas.
+- Se añadió una nota accesible en el formulario para aclarar que la validación es local y que no existe un servicio de reservas conectado.
+- Se documentó instalación, compilación, publicación, estructura y justificación de framework en README.md.
+- Se añadió .gitignore para excluir node_modules/ y archivos locales.
+
+Buenas prácticas aplicadas
+- Mobile-first: clases base para pantallas pequeñas y prefijos sm:, md: y lg: para ampliar el diseño.
+- Identidad visual centralizada en @theme.
+- HTML semántico, imágenes con alt, labels asociados, estados focus-visible y tablas semánticas.
+- El CSS compilado se conserva en el repositorio para que GitHub Pages pueda servirlo sin ejecutar Node.js.
+- No se incluye node_modules/ en el proyecto entregable.
+
+Componentes presentes
+- Botones de acción con hover y focus-visible.
+- Tarjetas de servicios construidas con article.
+- Aviso informativo accesible en el formulario.
+- Inputs, select, textarea y controles agrupados mediante fieldset y legend.
+
+Pruebas y limitaciones
+- Se verificó la presencia de un h1 por página y la ausencia de atributos style en las tres páginas.
+- Se verificó que las tres páginas enlazan la hoja css/output.css y que las rutas relativas apuntan a la ubicación correcta.
+- Se generó css/output.css con Tailwind CSS 4.1.10 a partir de las clases encontradas en los HTML.
+- La compilación npm run build y el modo npm run dev quedan configurados para ejecutarse después de npm install en un equipo con conexión al registro npm.
+- No se declara como verificada la publicación remota ni el funcionamiento del formulario en un backend. El formulario es demostrativo y action="#" no almacena reservas.
+- Antes de entregar, probar manualmente con Live Server en móvil, tablet y escritorio, navegar con Tab y comprobar todas las imágenes y enlaces.
+
+Framework elegido
+Tailwind CSS se elige para esta versión porque permite personalizar la identidad visual de Rueda Libre y controlar el diseño responsive mediante utilidades. Se acepta como desventaja que el HTML puede contener más clases y que los componentes deben construirse y mantenerse. Se mitiga centralizando el tema, manteniendo patrones consistentes y evitando @apply de forma generalizada.
+
+Pendientes de verificación por el autor
+- Ejecutar npm install y npm run build en el entorno local.
+- Revisar visualmente las tres páginas en distintos tamaños.
+- Confirmar los enlaces de GitHub Pages después de publicar.
+- Registrar el hash y el mensaje real del commit de entrega.

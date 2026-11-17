@@ -22,13 +22,7 @@
     rel="stylesheet"
   >
 
-  <script>
-    tailwind = { config: { theme: { extend: {
-      colors: { ruta: "#1E7A4F", pedal: "#F39A2B", noche: "#14213D", crema: "#FAF6EF", asfalto: "#5B6470" },
-      fontFamily: { titulo: ["Montserrat", "Arial", "sans-serif"], texto: ["Open Sans", "Arial", "sans-serif"] }
-    } } } };
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/output.css">
 
   <!-- Hoja de estilos compartida -->
 </head>
@@ -103,6 +97,11 @@
         Los campos marcados como obligatorios deben completarse
         antes de enviar el formulario.
       </p>
+
+      <div class="mb-6 rounded-lg border-l-4 border-pedal bg-white p-4 text-noche shadow-sm" role="note" aria-label="Información importante sobre las reservas">
+        <p class="font-semibold">Importante</p>
+        <p class="mt-1">Este formulario es una demostración académica: valida los datos en el navegador, pero todavía no registra ni envía reservas.</p>
+      </div>
 
       <p class="mb-4">
         ¿Tienes dudas sobre los precios?
